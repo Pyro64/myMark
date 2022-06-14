@@ -1,8 +1,16 @@
 <template>
-  <header>
+  <header class="container">
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink
+        class="mr-1 transition text-black font-sans text-lg hover:(text-green-600)"
+        to="/"
+        >Home</RouterLink
+      >
+      <RouterLink
+        class="text-black transition font-sans text-lg hover:(text-green-600)"
+        to="/about"
+        >About</RouterLink
+      >
     </nav>
   </header>
 

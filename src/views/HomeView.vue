@@ -7,16 +7,27 @@
     >
     <n-button class="mr-5" type="primary" @click="value = true">ON</n-button>
     <n-button class="mr-5" type="primary" @click="value = false">OFF</n-button>
+    <n-space class="mt-5">
+      <n-button type="primary" @click="increment">Increment</n-button>
+      <div>{{ counter }}</div>
+    </n-space>
   </div>
 </template>
 
 <script>
 import { useMouse, useToggle } from "@vueuse/core";
+import { storeToRefs } from "pinia";
+import { useCounterStore } from "../stores/counter";
 export default {
   setup() {
     const { x, y } = useMouse();
     const [value, toggle] = useToggle();
+    const store = storeToRefs(useCounterStore());
+    const { counter } = store;
+    const { increment } = useCounterStore();
     return {
+      increment,
+      counter,
       x,
       y,
       value,
