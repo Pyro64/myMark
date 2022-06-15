@@ -1,5 +1,6 @@
 <template>
-  <header class="container">
+  <my-header />
+  <!-- <header class="container">
     <nav>
       <RouterLink
         class="mr-1 transition text-black font-sans text-lg hover:(text-green-600)"
@@ -12,10 +13,11 @@
         >About</RouterLink
       >
     </nav>
-  </header>
+  </header> -->
 
   <RouterView />
 </template>
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+// import { RouterLink, RouterView } from "vue-router";
+import MyHeader from "./components/MyHeader.vue";
 </script>
