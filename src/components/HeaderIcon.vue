@@ -45,8 +45,7 @@ export default {
       margin-right: 0;
     }
     &:hover {
-      filter: invert(50%) sepia(88%) saturate(420%) hue-rotate(347deg)
-        brightness(104%) contrast(101%);
+      filter:  invert(30%) sepia(43%) saturate(1500%) hue-rotate(335deg) brightness(99%) contrast(106%);
     }
   }
 }

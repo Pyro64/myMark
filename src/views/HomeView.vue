@@ -1,13 +1,20 @@
-<template></template>
+<template>
+  <div>
+    <home-banner/>
+    <div class="container">
+      <home-link/>
+    </div>
+  </div>
+
+</template>
 
 <script>
 import HomeBanner from "../components/HomeBanner.vue";
-</script>
-<style lang="scss" scoped>
-@import "../assets/styles/mixins.scss";
+import HomeLink from "../components/HomeLink.vue";
 
-.wrapper {
-  @include fluid(margin-top, 15px, 25px);
-  @include container;
+export default {
+  components: { HomeLink, HomeBanner }
 }
-</style>
+
+</script>
+

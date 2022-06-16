@@ -1,22 +1,18 @@
 <template>
-  <my-header />
-  <!-- <header class="container">
-    <nav>
-      <RouterLink
-        class="mr-1 transition text-black font-sans text-lg hover:(text-green-600)"
-        to="/"
-        >Home</RouterLink
-      >
-      <RouterLink
-        class="text-black transition font-sans text-lg hover:(text-green-600)"
-        to="/about"
-        >About</RouterLink
-      >
-    </nav>
-  </header> -->
-  <RouterView />
+  <n-config-provider :theme-overrides="themeOverrides">
+    <my-header />
+    <router-view />
+  </n-config-provider>
 </template>
 <script setup>
-// import { RouterLink, RouterView } from "vue-router";
+import { NConfigProvider } from "naive-ui";
+import { RouterView } from "vue-router";
 import MyHeader from "./components/MyHeader.vue";
+const themeOverrides = {
+  "common": {
+    "primaryColor": "#FF2149FF",
+    "primaryColorHover": "#F8395CFF",
+    "primaryColorPressed": "#BE1937FF"
+  },
+};
 </script>

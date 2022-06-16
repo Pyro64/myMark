@@ -2,7 +2,7 @@
   <nav>
     <router-link class="navlink" to="/catalog">Каталог</router-link>
     <router-link class="navlink" to="/catalog">Услуги</router-link>
-    <router-link class="navlink" to="/catalog">О нас</router-link>
+    <router-link class="navlink" to="/about">О нас</router-link>
     <router-link class="navlink" to="/catalog">Оплата и доставка</router-link>
     <router-link class="navlink" to="/catalog">Контакты</router-link>
   </nav>
