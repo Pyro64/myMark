@@ -13,7 +13,7 @@
         alt="banner"
       />
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -29,23 +29,27 @@ export default {
 .banner {
   @include fluid(margin-bottom, 25px, 50px);
   background: linear-gradient(180deg, #E4E3E3 0%, #EEEEEE 100%);
+
   &__container {
     @include container;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   &__text {
     @include fluid(font-size, 24px, 36px);
     margin-bottom: 10px;
-    color:$black;
+    color: $black;
     font-weight: 500;
   }
+
   &__title {
     @include fluid(font-size, 36px, 48px);
     @include fluid(margin-bottom, 15px, 30px);
     font-weight: 700;
   }
+
   &__button {
     @include fluid(font-size, 16px, 22px);
     @include fluid(margin-top, 25px, 50px);
@@ -54,11 +58,11 @@ export default {
     @include fluid(padding-right, 45px, 90px);
     @include fluid(padding-left, 45px, 90px);
     height: auto;
-    color:#fff;
+    color: #fff;
     font-weight: 600;
     background: $red;
     border-radius: 25px;
-    
+    outline: none;
   }
 }
 </style>

@@ -27,34 +27,40 @@
 export default {
   setup() {
     return {};
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/styles/mixins.scss";
+
 .icons {
   display: flex;
   align-items: center;
+
   .icon {
     transition: $trn;
     width: 100%;
     height: 100%;
     cursor: pointer;
+
     &:last-child {
       margin-right: 0;
     }
+
     &:hover {
-      filter:  invert(30%) sepia(43%) saturate(1500%) hue-rotate(335deg) brightness(99%) contrast(106%);
+      filter: invert(30%) sepia(43%) saturate(1000%) hue-rotate(335deg) brightness(99%) contrast(106%);
     }
   }
 }
+
 .wrapper {
   @include fluid(width, 20px, 30px);
   @include fluid(height, 20px, 30px);
   @include fluid(margin-right, 20px, 40px);
   position: relative;
 }
+
 .number {
   @include fluid(width, 15px, 20px);
   @include fluid(height, 15px, 20px);

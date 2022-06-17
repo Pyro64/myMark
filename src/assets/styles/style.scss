@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 @import "./mixins.scss";
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   background: #f7f7f7;
   height: 100%;
@@ -14,22 +16,28 @@ body {
   font-style: normal;
   @include fluid(font-size, 12px, 14px);
 }
+
 button {
   border: none;
   outline: none;
 }
+
 a {
   text-decoration: none;
 }
-.container {
+
+.content {
   @include container;
 }
+
 input:focus::-webkit-input-placeholder {
   color: transparent;
 }
+
 textarea:focus::-webkit-input-placeholder {
   color: transparent;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

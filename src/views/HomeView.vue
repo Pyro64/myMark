@@ -1,9 +1,9 @@
 <template>
   <div>
-    <home-banner/>
-    <div class="container">
-      <home-link/>
-      <popular-product/>
+    <home-banner />
+    <div class="content">
+      <home-link />
+      <popular-product />
     </div>
   </div>
 
@@ -16,7 +16,7 @@ import PopularProduct from "../components/PopularProduct.vue";
 
 export default {
   components: { PopularProduct, HomeLink, HomeBanner }
-}
+};
 
 </script>
 

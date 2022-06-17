@@ -3,7 +3,7 @@
     <router-link class="homeLink" to="/services">
       <div class="homeLink__block">
         <div class="homeLink__item">
-          <my-title title="Уникальный дизайн" :minMargin="true"/>
+          <my-title title="Уникальный дизайн" :minMargin="true" />
           <div class="homeLink__subtitle">Для каждого клиента</div>
         </div>
         <div class="nameArrow">Услуги</div>
@@ -13,7 +13,7 @@
     <router-link class="homeLink" to="/services">
       <div class="homeLink__block">
         <div class="homeLink__item">
-          <my-title title="Промо-ярлыки"/>
+          <my-title title="Промо-ярлыки" :minMargin="true" />
           <div class="homeLink__subtitle">Эстетика и лаконичность</div>
         </div>
         <div class="nameArrow">В каталог</div>
@@ -25,6 +25,7 @@
 
 <script>
 import MyTitle from "./UI/MyTitle.vue";
+
 export default {
   name: "HomeLink",
   components: { MyTitle }
@@ -34,19 +35,23 @@ export default {
 
 </style>
 <style lang="scss" scoped>
- @import '../assets/styles/mixins.scss';
+@import '../assets/styles/mixins.scss';
+
 .homeLinks {
   @include fluid(margin-bottom, 25px, 50px);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .homeLink {
   @include fluid(height, 250px, 400px);
   position: relative;
   transition: $trn;
+
   &:hover {
     filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+
     .nameArrow {
       &::before {
         @include fluid(right, -20px, -25px);
@@ -54,7 +59,9 @@ export default {
       }
     }
   }
+
   width: 48%;
+
   &__block {
     @include fluid(padding, 20px, 40px);
     height: 100%;
@@ -64,32 +71,36 @@ export default {
     position: relative;
     z-index: 2;
   }
+
   &__subtitle {
     @include fluid(font-size, 14px, 24px);
     font-weight: 400;
-    color:$black;
+    color: $black;
   }
 
 }
- .nameArrow {
-   @include fluid(font-size, 14px, 24px);
-   font-weight: 400;
-   color:$black;
-   position: relative;
-   width: fit-content;
-   &::before {
-     transition: $trn;
-     @include fluid(width, 5px, 7px);
-     @include fluid(height, 10px, 12px);
-     @include fluid(right, -10px, -15px);
-     content: '';
-     position: absolute;
-     top: 55%;
-     transform: translateY(-50%);
-     background: url("../assets/images/icon/arrow-right.svg") no-repeat;
-     background-size: contain;
-   }
- }
+
+.nameArrow {
+  @include fluid(font-size, 14px, 24px);
+  font-weight: 400;
+  color: $black;
+  position: relative;
+  width: fit-content;
+
+  &::before {
+    transition: $trn;
+    @include fluid(width, 5px, 7px);
+    @include fluid(height, 10px, 12px);
+    @include fluid(right, -10px, -15px);
+    content: '';
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    background: url("../assets/images/icon/arrow-right.svg") no-repeat;
+    background-size: contain;
+  }
+}
+
 .img {
   position: absolute;
   left: 0;
