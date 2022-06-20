@@ -15,16 +15,9 @@
 
     <swiper
       :navigation="{nextEl: '.arrow__next',prevEl: '.arrow__prev',}"
-      :slidesPerView="3"
-      :grid="{
-      rows: 2,
-    }"
-      :spaceBetween="30"
-      :pagination="{
-      clickable: true,
-    }"
       :modules="modules"
-      class="mySwiper"
+      :slides-per-view="4"
+      :space-between="40"
     >
       <swiper-slide v-for="category in categories" :key="category.id">
         <card-category :category="category" />
@@ -34,7 +27,7 @@
   </div>
 </template>
 <script>
-import { Navigation } from "swiper";
+import { Navigation, Grid } from "swiper";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/vue";
 import category1 from "../assets/images/category/category-1.png";
 import category2 from "../assets/images/category/category-2.png";
@@ -43,7 +36,7 @@ import category4 from "../assets/images/category/category-4.png";
 import category5 from "../assets/images/category/category-5.png";
 import category6 from "../assets/images/category/category-6.png";
 import "swiper/css";
-
+import "swiper/css/grid";
 import "swiper/scss/navigation";
 import MyTitle from "./UI/MyTitle.vue";
 import CardCategory from "./UI/CardCategory.vue";
@@ -101,7 +94,7 @@ export default {
     ];
     return {
       categories,
-      modules: [Navigation]
+      modules: [Grid, Navigation]
     };
   }
 };

@@ -5,7 +5,7 @@
       <home-link />
       <popular-product />
       <advertising-images />
-      <!--      <popular-category />-->
+      <popular-category />
     </div>
   </div>
 

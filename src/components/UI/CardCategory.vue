@@ -1,8 +1,8 @@
 <template>
   <router-link to="/" class="category">
-    <!--    <img class="category__img" :src="category.img" src="category">-->
-    <!--    <div class="category__text">{{ category.text }}</div>-->
-    1
+    <img class="category__img" :src="category.src">
+    <div class="category__text">{{ category.text }}</div>
+
   </router-link>
 </template>
 
