@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/" class="category">
+  <router-link  to="/" class="category">
     <img class="category__img" :src="category.src">
     <div class="category__text">{{ category.text }}</div>
 
@@ -24,6 +24,7 @@ export default {
   @include fluid(padding-top, 15px, 30px);
   @include fluid(padding-bottom, 15px, 30px);
   @include fluid(padding-bottom, 20px, 40px);
+  display: block;
   background: #FFFFFF;
 
   &__img {
