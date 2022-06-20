@@ -27,11 +27,15 @@ export default {
 .card {
   @include fluid(padding, 10px, 20px);
   @include fluid(min-height, 350px, 420px);
-
+  transition: $trn;
   background: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  }
 
   &__block {
     display: flex;

@@ -117,6 +117,8 @@ export default {
 @import '../assets/styles/mixins.scss';
 
 .homeSlide {
+  @include fluid(margin-bottom, 25px, 50px);
+
   &__block {
     @include fluid(margin-bottom, 15px, 30px);
     display: flex;
