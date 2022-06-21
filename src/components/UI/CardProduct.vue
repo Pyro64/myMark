@@ -1,21 +1,21 @@
 <template>
-  <!--  <div class="card">-->
-  <!--    <img class="card__img" :src="slide.src" alt="card">-->
-  <!--    <div class="card__block">-->
-  <!--      <div class="card__name">{{ slide.name }}</div>-->
-  <!--      <div class="card__item">-->
-  <!--        <div class="card__price">{{ slide.price }} ₽</div>-->
-  <!--        <div v-if="slide.sales" class="card__sales">{{ slide.sales }} ₽</div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <n-button class="card__button">В корзину</n-button>-->
-  <!--  </div>-->
+  <div class="card">
+    <img class="card__img" :src="item.src" alt="card">
+    <div class="card__block">
+      <div class="card__name">{{ item.name }}</div>
+      <div class="card__item">
+        <div class="card__price">{{ item.price }} ₽</div>
+        <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
+      </div>
+    </div>
+    <n-button class="card__button">В корзину</n-button>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    slide: Object
+    item: Object
   }
 
 };

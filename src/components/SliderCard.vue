@@ -2,21 +2,21 @@
   <div class="homeSlide">
     <div class="homeSlide__block">
       <div class="homeSlide__item">
-        <my-title margin="false" title="Популярные товары" />
-        <div class="arrow arrow__prev">
+        <my-title margin="false" :title="title" />
+        <div class="arrow arrow__prev" :class="prev">
           <img class="icon" src="../assets/images/icon/arrow-left.svg">
         </div>
-        <div class="arrow arrow__next">
+        <div class="arrow arrow__next" :class="next">
           <img class="icon" src="../assets/images/icon/arrow-right.svg">
         </div>
       </div>
-      <router-link to="/about" class="homeSlide__link">Весь каталог</router-link>
+      <router-link :to="link" class="homeSlide__link">Весь каталог</router-link>
     </div>
 
     <swiper
-      :navigation="{nextEl: '.arrow__next',prevEl: '.arrow__prev',}"
+      :navigation="{nextEl: `.${next}`,prevEl: `.${prev}`,}"
       :modules="modules"
-      :slides-per-view="6"
+      :slides-per-view="slidesView"
       :space-between="40"
     >
       <swiper-slide v-for="slide in slides" :key="slide.id">
@@ -28,12 +28,6 @@
 <script>
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/vue";
-import card1 from "../assets/images/card/card-1.png";
-import card2 from "../assets/images/card/card-2.png";
-import card3 from "../assets/images/card/card-3.png";
-import card4 from "../assets/images/card/card-4.png";
-import card5 from "../assets/images/card/card-5.png";
-import card6 from "../assets/images/card/card-6.png";
 import "swiper/css";
 import CardProduct from "./UI/CardProduct.vue";
 import MyTitle from "./UI/MyTitle.vue";
@@ -41,7 +35,12 @@ import "swiper/scss/navigation";
 
 export default {
   props: {
-    slides: Array
+    slides: Array,
+    title: String,
+    link: String,
+    prev: String,
+    next: String,
+    slidesView: Number
   },
   components: {
     Navigation,

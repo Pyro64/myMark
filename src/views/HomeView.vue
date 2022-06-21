@@ -3,12 +3,14 @@
     <home-banner />
     <div class="content">
       <home-link />
-      <slider-card :slides="cards">
-        <card-product />
+      <slider-card :slides="cards" v-slot:default="slotProps" title="Популярные товары" link="/product"
+                   prev="product-prev" next="product-next" slidesView="6">
+        <card-product :item="slotProps.slide" />
       </slider-card>
       <advertising-images />
-      <slider-card :slides="categories" :item="">
-        <card-category />
+      <slider-card :slides="categories" v-slot:default="slotProps" title="Популярные категории" link="/category"
+                   prev="category-prev" next="category-next" slidesView="4">
+        <card-category :item="slotProps.slide" />
       </slider-card>
     </div>
   </div>
@@ -18,9 +20,7 @@
 <script>
 import HomeBanner from "../components/HomeBanner.vue";
 import HomeLink from "../components/HomeLink.vue";
-import PopularProduct from "../components/PopularProduct.vue";
 import AdvertisingImages from "../components/AdvertisingImages.vue";
-import PopularCategory from "../components/PopularCategory.vue";
 import card1 from "../assets/images/card/card-1.png";
 import card2 from "../assets/images/card/card-2.png";
 import card3 from "../assets/images/card/card-3.png";
@@ -42,9 +42,7 @@ export default {
     CardCategory,
     CardProduct,
     SliderCard,
-    PopularCategory,
     AdvertisingImages,
-    PopularProduct,
     HomeLink,
     HomeBanner
   },

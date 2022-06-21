@@ -2,7 +2,7 @@
   <header>
     <div class="block">
       <div class="item">
-        <my-logo />
+        <my-logo :logo="logo" />
         <my-nav />
       </div>
       <header-icon />
@@ -14,11 +14,15 @@
 import HeaderIcon from "./HeaderIcon.vue";
 import MyLogo from "./MyLogo.vue";
 import MyNav from "./MyNav.vue";
+import logo from "../assets/images/logo.svg";
+
 export default {
   setup() {
-    return {};
+    return {
+      logo
+    };
   },
-  components: { MyLogo, MyNav, HeaderIcon },
+  components: { MyLogo, MyNav, HeaderIcon }
 };
 </script>
 
@@ -31,12 +35,14 @@ header {
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.07);
 }
+
 .block {
   @include container;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .item {
   display: flex;
   align-items: center;
