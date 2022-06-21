@@ -10,50 +10,49 @@
           <img class="icon" src="../assets/images/icon/arrow-right.svg">
         </div>
       </div>
-      <router-link to="/about" class="homeSlide__link">Популярные категории</router-link>
+      <router-link to="/about" class="homeSlide__link">Весь каталог</router-link>
     </div>
 
     <swiper
       :navigation="{nextEl: '.arrow__next',prevEl: '.arrow__prev',}"
       :modules="modules"
-      :slides-per-view="4"
+      :slides-per-view="6"
       :space-between="40"
     >
-      <swiper-slide v-for="category in categories" :key="category.id">
-        <card-category :category="category" />
+      <swiper-slide v-for="slide in slides" :key="slide.id">
+        <slot :slide="slide" />
       </swiper-slide>
-
     </swiper>
   </div>
 </template>
 <script>
-import { Navigation, Grid } from "swiper";
+import { Navigation } from "swiper";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/vue";
-import category1 from "../assets/images/category/category-1.png";
-import category2 from "../assets/images/category/category-2.png";
-import category3 from "../assets/images/category/category-3.png";
-import category4 from "../assets/images/category/category-4.png";
-import category5 from "../assets/images/category/category-5.png";
-import category6 from "../assets/images/category/category-6.png";
+import card1 from "../assets/images/card/card-1.png";
+import card2 from "../assets/images/card/card-2.png";
+import card3 from "../assets/images/card/card-3.png";
+import card4 from "../assets/images/card/card-4.png";
+import card5 from "../assets/images/card/card-5.png";
+import card6 from "../assets/images/card/card-6.png";
 import "swiper/css";
-import "swiper/css/grid";
-import "swiper/scss/navigation";
+import CardProduct from "./UI/CardProduct.vue";
 import MyTitle from "./UI/MyTitle.vue";
-import CardCategory from "./UI/CardCategory.vue";
+import "swiper/scss/navigation";
 
 export default {
+  props: {
+    slides: Array
+  },
   components: {
-    CardCategory,
-    MyTitle,
     Navigation,
+    MyTitle,
+    CardProduct,
     Swiper,
     SwiperSlide
   },
   setup() {
-
     return {
-      categories,
-      modules: [Grid, Navigation]
+      modules: [Navigation]
     };
   }
 };

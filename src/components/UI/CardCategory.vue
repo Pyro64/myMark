@@ -1,15 +1,15 @@
 <template>
-  <router-link  to="/" class="category">
-    <img class="category__img" :src="category.src">
-    <div class="category__text">{{ category.text }}</div>
-
+  <router-link to="/" class="category">
+    <img class="category__img" :src="item.src">
+    <div class="category__text">{{ item.text }}</div>
+    {{ item }}
   </router-link>
 </template>
 
 <script>
 export default {
   props: {
-    category: Object
+    item: Object
   }
 
 };
