@@ -1,8 +1,8 @@
 <template>
-  <router-link to="/" class="category">
+  <div class="category" @click="$router.push(`/category/${item.id}`)">
     <img class="category__img" :src="item.src">
     <div class="category__text">{{ item.text }}</div>
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
   @include fluid(padding-top, 15px, 30px);
   @include fluid(padding-bottom, 15px, 30px);
   @include fluid(padding-bottom, 10px, 20px);
-  display: block;
+  cursor: pointer;
   transition: $trn;
   background: #FFFFFF;
 
