@@ -38,6 +38,7 @@ export default {
 @import '../assets/styles/mixins.scss';
 
 .homeLinks {
+  @include container;
   @include fluid(margin-bottom, 25px, 50px);
   display: flex;
   justify-content: space-between;

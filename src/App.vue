@@ -1,9 +1,13 @@
 <template>
   <n-config-provider :theme-overrides="themeOverrides">
-    <my-header />
-    <router-view />
-    <support-banner />
-    <my-footer />
+    <div class="main">
+      <my-header />
+      <div class="content">
+        <router-view />
+        <support-banner />
+      </div>
+      <my-footer />
+    </div>
   </n-config-provider>
 </template>
 <script setup>

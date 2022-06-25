@@ -32,6 +32,10 @@ export default {
 header {
   @include fluid(padding-top, 10px, 20px);
   @include fluid(padding-bottom, 10px, 20px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.07);
 }

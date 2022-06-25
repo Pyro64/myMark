@@ -1,6 +1,6 @@
 <template>
   <div class="homeSlide">
-    <div class="homeSlide__block">
+    <div v-if="isLink === true" class="homeSlide__block">
       <div class="homeSlide__item">
         <my-title margin="false" :title="title" />
         <div class="arrow arrow__prev" :class="prev">
@@ -12,7 +12,17 @@
       </div>
       <router-link :to="link" class="homeSlide__link">Весь каталог</router-link>
     </div>
-
+    <div v-else class="homeSlide__block">
+      <my-title margin="false" :title="title" />
+      <div class="homeSlide__item">
+        <div class="arrow arrow__prev" :class="prev">
+          <img class="icon" src="../assets/images/icon/arrow-left.svg">
+        </div>
+        <div class="arrow arrow__next" :class="next">
+          <img class="icon" src="../assets/images/icon/arrow-right.svg">
+        </div>
+      </div>
+    </div>
     <swiper
       :navigation="{nextEl: `.${next}`,prevEl: `.${prev}`,}"
       :modules="modules"
@@ -40,7 +50,8 @@ export default {
     link: String,
     prev: String,
     next: String,
-    slidesView: Number
+    slidesView: Number,
+    isLink: Boolean
   },
   components: {
     Navigation,
@@ -61,6 +72,7 @@ export default {
 
 .homeSlide {
   @include fluid(margin-bottom, 25px, 50px);
+  @include container;
 
   &__block {
     @include fluid(margin-bottom, 15px, 30px);

@@ -26,8 +26,26 @@ a {
   text-decoration: none;
 }
 
-.content {
+.container {
   @include container;
+}
+
+.content {
+  @include fluid(margin-top, 50px, 95px);
+  flex-grow: 1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  @include fluid(margin-top, 15px, 25px);
+  @include fluid(margin-bottom, 25px, 50px);
+  display: flex;
+  align-items: center;
 }
 
 input:focus::-webkit-input-placeholder {

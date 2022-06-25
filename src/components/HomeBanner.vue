@@ -1,7 +1,7 @@
 <template>
-  <div class="banner">
-    <div class="banner__container">
-      <div class="banner__block">
+  <div class="banner" :class="{'container': container}">
+    <div class="banner__block">
+      <div class="banner__item">
         <div class="banner__text">Готовы предложить</div>
         <div class="banner__title">Печать этикеток для OZON</div>
         <div class="banner__text">Быстро и качественно</div>
@@ -18,6 +18,9 @@
 
 <script>
 export default {
+  props: {
+    container: Boolean
+  },
   setup() {
     return {};
   }
@@ -26,11 +29,17 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/styles/mixins.scss";
 
+.container {
+  @include container;
+  @include fluid(margin-bottom, 25px, 50px);
+}
+
 .banner {
   @include fluid(margin-bottom, 25px, 50px);
   background: linear-gradient(180deg, #E4E3E3 0%, #EEEEEE 100%);
 
-  &__container {
+
+  &__block {
     @include container;
     display: flex;
     align-items: center;
