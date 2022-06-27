@@ -20,8 +20,13 @@ export default {
 .breadcrumbLink {
   @include fluid(font-size, 12px, 14px);
   @include fluid(margin-right, 30px, 40px);
+  transition: $trn;
   color: $black;
   position: relative;
+
+  &:hover {
+    color: $red;
+  }
 
   &::before {
     @include fluid(width, 5px, 7px);
@@ -41,8 +46,6 @@ export default {
     }
   }
 
-  &__hover {
 
-  }
 }
 </style>

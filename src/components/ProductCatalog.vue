@@ -52,6 +52,8 @@ export default {
 
   &__block {
     display: flex;
+
+
   }
 
   &__item {
@@ -63,9 +65,20 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: $trn;
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &:hover {
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+      .productCatalog {
+        &__text {
+          color: $red;
+        }
+      }
     }
   }
 
@@ -78,6 +91,7 @@ export default {
 
   &__text {
     @include fluid(font-size, 14px, 20px);
+    transition: $trn;
     font-weight: 600;
     color: $black;
   }
