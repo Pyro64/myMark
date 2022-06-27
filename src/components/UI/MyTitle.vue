@@ -1,5 +1,6 @@
 <template>
-  <div :class="{'title__minMargin': minMargin , 'title__noMargin': margin}" class="title">{{ title }}
+  <div :class="{'title__minMargin': minMargin , 'title__noMargin': margin}" class="title">
+    {{ title }}
   </div>
 </template>
 

@@ -5,7 +5,6 @@
       <bread-crumb to="/products" text="Каталог товаров" />
     </div>
   </div>
-
   <product-catalog />
   <home-banner :container="true" />
   <slider-card :slides="products" v-slot:default="slotProps" title="Популярные товары"

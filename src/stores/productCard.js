@@ -20,35 +20,35 @@ export const useProductsCardStore = defineStore({
       {
         id: 2,
         src: card2,
-        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        name: "Этикет-лента 26×16 мм, прямоугольная, белая",
         price: 459,
         sales: null
       },
       {
         id: 3,
         src: card3,
-        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        name: "Этикет-пистолет, 22×12 мм, MOTEX МХ-5500PLUS ",
         price: 4000,
         sales: null
       },
       {
         id: 4,
         src: card4,
-        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        name: "Этикетка ТермоЭко (100×100 мм)",
         price: 2000,
         sales: 2500
       },
       {
         id: 5,
         src: card5,
-        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        name: "Ценник малый «Цена» 30×20 мм, белый",
         price: 1500,
         sales: null
       },
       {
         id: 6,
         src: card6,
-        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        name: "Этикетка для документов самоклеящаяся, 74×40мм",
         price: 150,
         sales: 2000
       },

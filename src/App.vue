@@ -1,13 +1,15 @@
 <template>
   <n-config-provider :theme-overrides="themeOverrides">
-    <div class="main">
-      <my-header />
-      <div class="content">
-        <router-view />
-        <support-banner />
+    <n-message-provider>
+      <div class="main">
+        <my-header />
+        <div class="content">
+          <router-view />
+          <support-banner />
+        </div>
+        <my-footer />
       </div>
-      <my-footer />
-    </div>
+    </n-message-provider>
   </n-config-provider>
 </template>
 <script setup>

@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img class="card__img" :src="item.src" alt="card">
+    <n-image :lazy="true" class="card__img" :src="item.src" alt="card" />
     <div class="card__block">
       <div class="card__name">{{ item.name }}</div>
       <div class="card__item">
@@ -8,16 +8,33 @@
         <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
       </div>
     </div>
-    <n-button class="card__button">В корзину</n-button>
+    <n-button :loading="isLoading" class="card__button" @click="addProduct">В корзину</n-button>
   </div>
 </template>
 
 <script>
+import { useMessage } from "naive-ui";
+import { ref } from "vue";
+
 export default {
   props: {
     item: Object
+  },
+  setup(props) {
+    const message = useMessage();
+    const name = props.item.name;
+    const isLoading = ref(false);
+    return {
+      addProduct() {
+        isLoading.value = true;
+        setTimeout(() => {
+          isLoading.value = false;
+          message.success(`Товар ${name} добавлен в корзину`);
+        }, 1000);
+      },
+      isLoading
+    };
   }
-
 };
 </script>
 
@@ -56,6 +73,11 @@ export default {
     @include fluid(margin-bottom, 10px, 20px);
     width: 100%;
     object-fit: contain;
+    transition: $trn;
+
+    &:hover {
+      transform: scale(1.03);
+    }
   }
 
   &__name {
@@ -81,9 +103,7 @@ export default {
 
   &__button {
     @include fluid(font-size, 14px, 16px);
-    @include fluid(padding-top, 5px, 15px);
-    @include fluid(padding-bottom, 5px, 15px);
-    height: auto;
+    @include fluid(height, 30px, 46px);
     width: 100%;
     color: #fff;
     font-weight: 600;
