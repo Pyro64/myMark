@@ -9,12 +9,11 @@ import card6 from "../assets/images/card/card-6.png";
 export const useProductsCardStore = defineStore({
   id: "productsCard",
   state: () => ({
-
     products: [
       {
         id: 1,
         src: card1,
-        name: "Риббон Wax/Resin 110 мм х 74 м Риббон Wax/Resin  Риббон Wax/Resin ",
+        name: "Риббон Wax/Resin 110 мм х 74 м",
         price: 1_459,
         sales: 1_899
       },

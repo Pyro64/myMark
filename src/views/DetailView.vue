@@ -13,7 +13,6 @@
                prev="watch-prev" next="watch-next" slidesView="6">
     <card-product :item="slotProps.slide" />
   </slider-card>
-
   <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
 работает для вас без выходных" to="/" :img="supportBannerImg" />
 </template>
@@ -28,16 +27,18 @@ import SliderCard from "../components/SliderCard.vue";
 import supportBannerImg from "../assets/images/support-banner.png";
 import priceBannerImg from "../assets/images/support-banner-2.png";
 import InfoBanner from "../components/InfoBanner.vue";
+import { storeToRefs } from "pinia";
 
 export default {
   name: "DetailView",
   components: { InfoBanner, CardProduct, SliderCard, MyBreadcrumb, ProductDetail },
 
   setup() {
-    const store = useProductsCardStore();
+    const store = storeToRefs(useProductsCardStore());
     const { products } = store;
+    const { getProductById } = useProductsCardStore();
     const route = useRoute();
-    const product = store.getProductById(route.params.id);
+    const product = getProductById(route.params.id);
     const routes = [
       {
         id: 1,

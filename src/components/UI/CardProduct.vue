@@ -3,26 +3,29 @@
     <router-link :to="{ name: 'detail', params: { id: `${item.id}` }}">
       <img :lazy="true" class="card__img" :src="item.src" alt="card" />
     </router-link>
-      <div class="card__block">
-        <div class="card__name">{{ item.name }}</div>
-        <div class="card__item">
-          <div class="card__price">{{ item.price }} ₽</div>
-          <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
-        </div>
+    <div class="card__block">
+      <div class="card__name">{{ item.name }}</div>
+      <div class="card__item">
+        <div class="card__price">{{ item.price }} ₽</div>
+        <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
       </div>
-    <n-button :loading="isLoading" :disabled="isLoading" class="card__button" @click="addProduct('success')">В корзину</n-button>
+    </div>
+    <n-button :loading="isLoading" :disabled="isLoading" class="card__button" @click="addProduct('success')">В
+      корзину
+    </n-button>
   </div>
 </template>
 
 <script>
-import { useNotification  } from "naive-ui";
+import { useNotification } from "naive-ui";
 import { ref } from "vue";
+
 export default {
   props: {
     item: Object
   },
   setup(props) {
-    const notification  = useNotification ();
+    const notification = useNotification();
     const name = props.item.name;
     const isLoading = ref(false);
     return {
@@ -116,5 +119,9 @@ export default {
     border-radius: 15px;
     outline: none;
   }
+}
+
+.popover {
+  border-radius: 20px;
 }
 </style>
