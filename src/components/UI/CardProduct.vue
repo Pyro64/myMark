@@ -20,7 +20,7 @@
           role="dialog"
           aria-modal="true"
           closable
-          @click="showModal = false "
+          @close="showModal = false "
       >
         <template #footer>
           <n-space>
