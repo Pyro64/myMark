@@ -1,35 +1,40 @@
 <template>
   <div class="card">
-    <n-image :lazy="true" class="card__img" :src="item.src" alt="card" />
-    <div class="card__block">
-      <div class="card__name">{{ item.name }}</div>
-      <div class="card__item">
-        <div class="card__price">{{ item.price }} ₽</div>
-        <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
+    <router-link :to="{ name: 'detail', params: { id: `${item.id}` }}">
+      <img :lazy="true" class="card__img" :src="item.src" alt="card" />
+    </router-link>
+      <div class="card__block">
+        <div class="card__name">{{ item.name }}</div>
+        <div class="card__item">
+          <div class="card__price">{{ item.price }} ₽</div>
+          <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
+        </div>
       </div>
-    </div>
-    <n-button :loading="isLoading" class="card__button" @click="addProduct">В корзину</n-button>
+    <n-button :loading="isLoading" :disabled="isLoading" class="card__button" @click="addProduct('success')">В корзину</n-button>
   </div>
 </template>
 
 <script>
-import { useMessage } from "naive-ui";
+import { useNotification  } from "naive-ui";
 import { ref } from "vue";
-
 export default {
   props: {
     item: Object
   },
   setup(props) {
-    const message = useMessage();
+    const notification  = useNotification ();
     const name = props.item.name;
     const isLoading = ref(false);
     return {
-      addProduct() {
+      addProduct(type) {
         isLoading.value = true;
         setTimeout(() => {
           isLoading.value = false;
-          message.success(`Товар ${name} добавлен в корзину`);
+          notification[type]({
+            content: `Товар ${name}`,
+            meta: "добавлен в корзину",
+            duration: 3000
+          });
         }, 1000);
       },
       isLoading

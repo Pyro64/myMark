@@ -9,6 +9,7 @@ import card6 from "../assets/images/card/card-6.png";
 export const useProductsCardStore = defineStore({
   id: "productsCard",
   state: () => ({
+
     products: [
       {
         id: 1,
@@ -68,6 +69,10 @@ export const useProductsCardStore = defineStore({
       }
     ]
   }),
-  getters: {},
+  getters: {
+    getProductById: (state) => {
+      return (productId) => state.products.find((product) => product.id == productId);
+    }
+  },
   actions: {}
 });

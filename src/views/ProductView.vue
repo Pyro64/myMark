@@ -1,16 +1,13 @@
 <template>
-  <div class="container">
-    <div class="breadcrumb ">
-      <bread-crumb to="/" text="Главная" />
-      <bread-crumb to="/products" text="Каталог товаров" />
-    </div>
-  </div>
+  <my-breadcrumb :routes="routes" />
   <product-catalog />
   <home-banner :container="true" />
   <slider-card :slides="products" v-slot:default="slotProps" title="Популярные товары"
                prev="product-prev" next="product-next" slidesView="6">
     <card-product :item="slotProps.slide" />
   </slider-card>
+  <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
+работает для вас без выходных" to="/" :img="supportBannerImg" />
 </template>
 
 <script>
@@ -20,16 +17,32 @@ import { storeToRefs } from "pinia/dist/pinia";
 import CardProduct from "../components/UI/CardProduct.vue";
 import { useProductsCardStore } from "../stores/productCard";
 import ProductCatalog from "../components/ProductCatalog.vue";
-import BreadCrumb from "../components/UI/BreadCrumb.vue";
+import MyBreadcrumb from "../components/UI/MyBreadcrumb.vue";
+import supportBannerImg from "../assets/images/support-banner.png";
+import InfoBanner from "../components/InfoBanner.vue";
 
 export default {
   name: "ProductView",
-  components: { BreadCrumb, ProductCatalog, CardProduct, SliderCard, HomeBanner },
+  components: { InfoBanner, MyBreadcrumb, ProductCatalog, CardProduct, SliderCard, HomeBanner },
   setup() {
     const storeProducts = storeToRefs(useProductsCardStore());
     const { products } = storeProducts;
+    const routes = [
+      {
+        id: 1,
+        to: "/",
+        text: "Главная"
+      },
+      {
+        id: 2,
+        to: "/products",
+        text: "Каталог товаров"
+      }
+    ];
     return {
-      products
+      products,
+      routes,
+      supportBannerImg
     };
   }
 };

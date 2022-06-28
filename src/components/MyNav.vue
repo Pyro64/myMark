@@ -26,6 +26,7 @@ nav {
 .navlink {
   @include fluid(font-size, 14px, 16px);
   @include fluid(margin-right, 20px, 40px);
+  position: relative;
   font-weight: 500;
   transition: $trn;
   color: $black;
@@ -34,8 +35,27 @@ nav {
     color: $red;
   }
 
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    transition: $trn;
+    background: $red;
+    width: 0;
+    border-radius: 3px;
+    @include fluid(bottom, -5px, -10px);
+    @include fluid(height, 2px, 3px);
+  }
+
   &:last-child {
     margin-right: 0;
+  }
+}
+
+.router-link-exact-active {
+  &::after {
+    width: 50%;
   }
 }
 </style>

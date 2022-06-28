@@ -41,15 +41,35 @@ export const useCategoryCardStore = defineStore({
         text: "Этикет-пистолеты"
       },
       {
-        id: 7,
+        id: 8,
         src: category1,
         text: "Прозрачные этикетки"
       },
       {
-        id: 8,
+        id: 9,
         src: category2,
         text: "Иглы для маркиратора"
-      }
+      },
+      {
+        id: 10,
+        src: category5,
+        text: "Ролики для этикет-пистолетов"
+      },
+      {
+        id: 11,
+        src: category6,
+        text: "Этикет-пистолеты"
+      },
+      {
+        id: 12,
+        src: category1,
+        text: "Прозрачные этикетки"
+      },
+      {
+        id: 13,
+        src: category2,
+        text: "Иглы для маркиратора"
+      },
     ]
   }),
   getters: {},

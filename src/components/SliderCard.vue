@@ -1,7 +1,7 @@
 <template>
   <div class="homeSlide">
     <div v-if="isLink === true" class="homeSlide__block">
-      <div class="homeSlide__item">
+      <div v-show="slides.length  > slidesView" class="homeSlide__item">
         <my-title margin="false" :title="title" />
         <div class="arrow arrow__prev" :class="prev">
           <img class="icon" src="../assets/images/icon/arrow-left.svg">
@@ -14,7 +14,7 @@
     </div>
     <div v-else class="homeSlide__block">
       <my-title margin="false" :title="title" />
-      <div class="homeSlide__item">
+      <div v-show="slides.length  > slidesView" class="homeSlide__item">
         <div class="arrow arrow__prev" :class="prev">
           <img class="icon" src="../assets/images/icon/arrow-left.svg">
         </div>
@@ -28,6 +28,9 @@
       :modules="modules"
       :slides-per-view="slidesView"
       :space-between="40"
+      :allowTouchMove="false"
+      :slidesPerGroup="slidesView"
+      :speed="600"
     >
       <swiper-slide v-for="slide in slides" :key="slide.id">
         <slot :slide="slide" />
@@ -128,6 +131,7 @@ export default {
 .arrow {
   @include fluid(width, 30px, 44px);
   @include fluid(height, 30px, 44px);
+  transition: $trn;
   cursor: pointer;
   border-radius: 50%;
   display: flex;
@@ -151,5 +155,9 @@ export default {
   }
 }
 
+.swiper-button-disabled {
+  cursor: no-drop;
+  opacity: 0.2;
+}
 
 </style>

@@ -1,12 +1,17 @@
 <template>
-  <router-link class="breadcrumbLink" :to="to">{{ text }}</router-link>
+  <div class="container">
+    <div class="breadcrumb ">
+      <router-link v-for="route in routes" :key="route.id" class="breadcrumbLink" :to="route.to">{{ route.text }}
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
+  name: "MyBreadcrumb",
   props: {
-    to: String,
-    text: String
+    routes: Array
   },
   setup() {
 
@@ -16,6 +21,17 @@ export default {
 
 <style scoped lang="scss">
 @import '../../assets/styles/mixins.scss';
+
+.container {
+  @include container;
+}
+
+.breadcrumb {
+  @include fluid(margin-top, 15px, 25px);
+  @include fluid(margin-bottom, 25px, 50px);
+  display: flex;
+  align-items: center;
+}
 
 .breadcrumbLink {
   @include fluid(font-size, 12px, 14px);
@@ -41,11 +57,12 @@ export default {
   }
 
   &:last-child {
+    opacity: 0.5;
+    pointer-events: none;
+
     &::before {
       display: none;
     }
   }
-
-
 }
 </style>

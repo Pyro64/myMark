@@ -1,21 +1,39 @@
 <template>
   <div class="support">
-    <div class="support__block">
+    <div :style="{background: `${background}`}" class="support__block">
       <div class="support__item">
-        <div class="support__title">Мы всегда рядом</div>
-        <div class="support__text">Круглосуточная поддержка
-          работает для вас без выходных
+        <div class="support__title">{{ title }}</div>
+        <div class="support__text">{{ text }}
         </div>
-        <router-link to="/" class="support__link">Подробнее</router-link>
+        <router-link :to="to" class="support__link">Подробнее</router-link>
       </div>
-      <img src="../assets/images/support-banner.png" alt="banner" class="support__img">
+      <img :src="img" alt="banner" class="support__img">
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "SupportBanner"
+  name: "InfoBanner",
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    to: {
+      type: String,
+      required: true
+    },
+    img: {
+      type: Image,
+      required: true
+    },
+    background: String
+  }
 };
 </script>
 
@@ -50,6 +68,7 @@ export default {
     width: 50%;
     @include fluid(height, 300px, 490px);
     object-fit: cover;
+    object-position: top;
   }
 
   &__title {

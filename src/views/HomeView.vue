@@ -11,6 +11,8 @@
                prev="category-prev" next="category-next" slidesView="4">
     <card-category :item="slotProps.slide" />
   </slider-card>
+  <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
+работает для вас без выходных" to="/" :img="supportBannerImg" />
 </template>
 
 <script>
@@ -23,9 +25,12 @@ import CardCategory from "../components/UI/CardCategory.vue";
 import { useCategoryCardStore } from "@/stores/categoryCard";
 import { storeToRefs } from "pinia";
 import { useProductsCardStore } from "../stores/productCard";
+import InfoBanner from "../components/InfoBanner.vue";
+import supportBannerImg from "../assets/images/support-banner.png";
 
 export default {
   components: {
+    InfoBanner,
     CardCategory,
     CardProduct,
     SliderCard,
@@ -40,7 +45,8 @@ export default {
     const { products } = storeProducts;
     return {
       products,
-      categories
+      categories,
+      supportBannerImg
     };
   }
 };
