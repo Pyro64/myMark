@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <router-link :to="{ name: 'detail', params: { id: `${item.id}` }}">
-      <img :lazy="true" class="card__img" :src="item.src" alt="card"/>
+      <img :lazy="true" class="card__img" :src="item.src" alt="card" />
     </router-link>
     <div class="card__block">
       <div class="card__name">{{ item.name }}</div>
@@ -11,22 +11,32 @@
       </div>
     </div>
     <n-button class="card__button" @click="showModal = true">Добавить</n-button>
-    <n-modal v-model:show="showModal"  :block-scroll="false">
+    <n-modal v-model:show="showModal" :block-scroll="false">
       <n-card
-          style="width: 600px"
-          :bordered="false"
-          :title="item.name"
-          size="huge"
-          role="dialog"
-          aria-modal="true"
-          closable
-          @close="showModal = false "
+        style="width: 600px"
+        :bordered="false"
+        :title="item.name"
+        size="huge"
+        role="dialog"
+        aria-modal="true"
+        closable
+        @close="showModal = false "
       >
+        <div>
+          <my-counter />
+        </div>
+
         <template #footer>
-          <n-space>
-            <n-button>В избранное</n-button>
-            <n-button>В корзину</n-button>
-          </n-space>
+          <div class="modalBlock">
+            <n-button :loading="isLoadingFavorite.value" :disabled="isLoadingFavorite.value"
+                      @click="addProduct('success',isLoadingFavorite,'избранное')"
+                      class="modalBtn">В избранное
+            </n-button>
+            <n-button :loading="isLoadingBasket.value" :disabled="isLoadingBasket.value"
+                      @click="addProduct('success',isLoadingBasket,'корзину')"
+                      class="modalBtn">В корзину
+            </n-button>
+          </div>
         </template>
       </n-card>
     </n-modal>
@@ -34,19 +44,46 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import { ref, reactive } from "vue";
+import MyCounter from "./MyCounter.vue";
+import { useNotification } from "naive-ui";
 
 export default {
+  components: { MyCounter },
   props: {
     item: Object
   },
   setup(props) {
-    const showModal = ref(false);
+    let showModal = ref(false);
+    const checkedValue = ref(null);
+    const notification = useNotification();
+    const isLoadingBasket = reactive({ value: false });
+    const isLoadingFavorite = reactive({ value: false });
     return {
+      handleChange(e) {
+        checkedValue.value = e.target.value;
+      },
+      addProduct(type, isLoading, text) {
+        isLoading.value = true;
+        setTimeout(() => {
+          isLoading.value = false;
+          showModal.value = false;
+          notification[type]({
+            content: `Товар ${props.item.name}`,
+            meta: `добавлен в ${text}`,
+            duration: 3000
+          });
+        }, 1000);
+        console.log(isLoading);
+      },
+      isLoadingFavorite,
+      isLoadingBasket,
+      checkedValue,
       showModal
     };
   }
-};
+}
+;
 </script>
 
 <style lang="scss" scoped>
@@ -124,7 +161,18 @@ export default {
   }
 }
 
-.popover {
-  border-radius: 20px;
+.modalBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalBtn {
+  @include fluid(height, 35px, 40px);
+  border: none;
+  outline: none;
+  width: 48%;
+  background: #EEEEEE;
+  border-radius: 10px;
 }
 </style>

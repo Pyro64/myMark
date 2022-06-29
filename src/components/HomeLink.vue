@@ -31,9 +31,6 @@ export default {
   components: { MyTitle }
 };
 </script>
-<style lang="scss">
-
-</style>
 <style lang="scss" scoped>
 @import '../assets/styles/mixins.scss';
 
