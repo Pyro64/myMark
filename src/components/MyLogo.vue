@@ -8,7 +8,7 @@
 <script>
 export default {
   props: {
-    logo: Image
+    logo: String
   },
   setup() {
     return {};

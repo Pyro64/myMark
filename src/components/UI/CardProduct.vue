@@ -1,58 +1,56 @@
 <template>
-  <div class="card">
-    <router-link :to="{ name: 'detail', params: { id: `${item.id}` }}">
-      <img :lazy="true" class="card__img" :src="item.src" alt="card" />
-    </router-link>
-    <div class="card__block">
-      <div class="card__name">{{ item.name }}</div>
-      <div class="card__item">
-        <div class="card__price">{{ item.price }} ₽</div>
-        <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
-      </div>
-    </div>
-    <n-button class="card__button" @click="showModal = true">Добавить</n-button>
-    <n-modal v-model:show="showModal" :block-scroll="false">
-      <n-card
-        style="width: 600px"
-        :bordered="false"
-        :title="item.name"
-        size="huge"
-        role="dialog"
-        aria-modal="true"
-        closable
-        @close="showModal = false "
-      >
-        <div class="modalBlock">
-          <my-counter />
-          <div class="card__wrapper">
-            <div class="card__sum">Итоговая стоимость:</div>
-            <div class="card__price">{{ item.price }} ₽</div>
-          </div>
+  <router-link :to="{ name: 'detail', params: { id: `${item.id}` }}">
+    <div class="card">
+      <img class="card__img" :src="item.src" alt="card" />
+      <div class="card__block">
+        <div class="card__name">{{ item.name }}</div>
+        <div class="card__item">
+          <div class="card__price">{{ item.price }} ₽</div>
+          <div v-if="item.sales" class="card__sales">{{ item.sales }} ₽</div>
         </div>
-
-        <template #footer>
+      </div>
+      <n-button class="card__button" @click.prevent.stop="openModal">Добавить</n-button>
+      <n-modal v-model:show="showModal" :block-scroll="false">
+        <n-card
+          style="width: 600px"
+          :bordered="false"
+          :title="item.name"
+          size="huge"
+          role="dialog"
+          aria-modal="true"
+          closable
+          @close="showModal = false "
+        >
           <div class="modalBlock">
-            <n-button :loading="isLoadingFavorite.value" :disabled="isLoadingFavorite.value"
-                      @click="addProduct('success',isLoadingFavorite,'избранное')"
-                      class="modalBtn">В избранное
-            </n-button>
-            <n-button :loading="isLoadingBasket.value" :disabled="isLoadingBasket.value"
-                      @click="addProduct('success',isLoadingBasket,'корзину')"
-                      class="modalBtn">В корзину
-            </n-button>
+            <my-counter />
+            <div class="card__wrapper">
+              <div class="card__sum">Итоговая стоимость:</div>
+              <div class="card__price">{{ item.price }} ₽</div>
+            </div>
           </div>
-        </template>
-      </n-card>
-    </n-modal>
-  </div>
+
+          <template #footer>
+            <div class="modalBlock">
+              <n-button :loading="isLoadingFavorite.value" :disabled="isLoadingFavorite.value"
+                        @click="addProduct('success',isLoadingFavorite,'избранное')"
+                        class="modalBtn">В избранное
+              </n-button>
+              <n-button :loading="isLoadingBasket.value" :disabled="isLoadingBasket.value"
+                        @click="addProduct('success',isLoadingBasket,'корзину')"
+                        class="modalBtn">В корзину
+              </n-button>
+            </div>
+          </template>
+        </n-card>
+      </n-modal>
+    </div>
+  </router-link>
 </template>
 
 <script>
 import { ref, reactive, watch } from "vue";
 import MyCounter from "./MyCounter.vue";
 import { useNotification } from "naive-ui";
-import { useProductsCardStore } from "../../stores/productCard";
-import { storeToRefs } from "pinia/dist/pinia";
 
 export default {
   components: { MyCounter },
@@ -63,13 +61,14 @@ export default {
     let showModal = ref(false);
     const checkedValue = ref(null);
     const notification = useNotification();
-    const storeProducts = storeToRefs(useProductsCardStore());
-    const { countProduct } = storeProducts;
     const isLoadingBasket = reactive({ value: false });
     const isLoadingFavorite = reactive({ value: false });
     return {
       handleChange(e) {
         checkedValue.value = e.target.value;
+      },
+      openModal() {
+        showModal.value = true;
       },
       addProduct(type, isLoading, text) {
         isLoading.value = true;
@@ -134,6 +133,7 @@ export default {
     @include fluid(margin-right, 10px, 15px);
     font-weight: 500;
     color: $gray;
+    user-select: none;
   }
 
   &__img {

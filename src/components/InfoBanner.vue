@@ -29,7 +29,7 @@ export default {
       required: true
     },
     img: {
-      type: Image,
+      type: String,
       required: true
     },
     background: String
