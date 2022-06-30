@@ -66,12 +66,20 @@ export const useProductsCardStore = defineStore({
         price: 248,
         sales: 456
       }
-    ]
+    ],
+    countProduct: 1
   }),
   getters: {
     getProductById: (state) => {
       return (productId) => state.products.find((product) => product.id == productId);
     }
   },
-  actions: {}
+  actions: {
+    incrementProduct() {
+      this.countProduct++;
+    },
+    decrementProduct() {
+      this.countProduct--;
+    }
+  }
 });

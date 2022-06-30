@@ -1,11 +1,11 @@
 <template>
   <div class="counter">
-    <my-minus @click="decrement()" />
+    <my-minus @click="decrementProduct()" />
     <div class="counter__block">
-      <input class="counter__input" v-model="count" />
+      <input type="number" min="1" class="counter__input" v-model="countProduct" />
       <div class="counter__type">шт.</div>
     </div>
-    <my-plus @click="increment()" />
+    <my-plus @click="incrementProduct()" />
   </div>
 </template>
 
@@ -13,22 +13,20 @@
 import MyPlus from "../icon/MyPlus.vue";
 import MyMinus from "../icon/MyMinus.vue";
 import { ref } from "vue";
+import { useProductsCardStore } from "../../stores/productCard";
+import { storeToRefs } from "pinia/dist/pinia";
 
 export default {
   name: "MyCounter",
   components: { MyMinus, MyPlus },
   setup() {
-    let count = ref(1);
-    const increment = () => {
-      count.value++;
-    };
-    const decrement = () => {
-      count.value--;
-    };
+    const storeProducts = storeToRefs(useProductsCardStore());
+    const { countProduct } = storeProducts;
+    const { incrementProduct, decrementProduct } = useProductsCardStore();
     return {
-      increment,
-      decrement,
-      count
+      countProduct,
+      incrementProduct,
+      decrementProduct
     };
   }
 };
@@ -61,6 +59,8 @@ export default {
   }
 
   &__type {
+    margin-left: 1px;
+    user-select: none;
     @include fluid(font-size, 12px, 16px);
     color: $black;
   }

@@ -69,7 +69,7 @@ export const useCategoryCardStore = defineStore({
         id: 13,
         src: category2,
         text: "Иглы для маркиратора"
-      },
+      }
     ]
   }),
   getters: {},

@@ -22,8 +22,12 @@
         closable
         @close="showModal = false "
       >
-        <div>
+        <div class="modalBlock">
           <my-counter />
+          <div class="card__wrapper">
+            <div class="card__sum">Итоговая стоимость:</div>
+            <div class="card__price">{{ item.price }} ₽</div>
+          </div>
         </div>
 
         <template #footer>
@@ -44,9 +48,11 @@
 </template>
 
 <script>
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 import MyCounter from "./MyCounter.vue";
 import { useNotification } from "naive-ui";
+import { useProductsCardStore } from "../../stores/productCard";
+import { storeToRefs } from "pinia/dist/pinia";
 
 export default {
   components: { MyCounter },
@@ -57,6 +63,8 @@ export default {
     let showModal = ref(false);
     const checkedValue = ref(null);
     const notification = useNotification();
+    const storeProducts = storeToRefs(useProductsCardStore());
+    const { countProduct } = storeProducts;
     const isLoadingBasket = reactive({ value: false });
     const isLoadingFavorite = reactive({ value: false });
     return {
@@ -116,6 +124,18 @@ export default {
 
   }
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__sum {
+    @include fluid(font-size, 14px, 18px);
+    @include fluid(margin-right, 10px, 15px);
+    font-weight: 500;
+    color: $gray;
+  }
+
   &__img {
     @include fluid(height, 150px, 200px);
     @include fluid(margin-bottom, 10px, 20px);
@@ -138,6 +158,7 @@ export default {
   &__price {
     @include fluid(margin-right, 5px, 10px);
     @include fluid(font-size, 12px, 16px);
+    user-select: none;
     color: $red;
     font-weight: 600;
   }
