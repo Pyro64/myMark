@@ -10,7 +10,7 @@
         </div>
       </div>
       <n-button class="card__button" @click.prevent.stop="openModal">Добавить</n-button>
-      <n-modal v-model:show="showModal" :block-scroll="false">
+      <n-modal v-model:show="showModal" :block-scroll="false" :auto-focus="false">
         <n-card
           style="width: 600px"
           :bordered="false"

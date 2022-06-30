@@ -2,7 +2,7 @@
   <div class="counter">
     <my-minus @click="decrementProduct()" />
     <div class="counter__block">
-      <input type="number" min="1" class="counter__input" v-model="countProduct" />
+      <input v-focus type="number" min="1" class="counter__input" v-model="countProduct" />
       <div class="counter__type">шт.</div>
     </div>
     <my-plus @click="incrementProduct()" />
