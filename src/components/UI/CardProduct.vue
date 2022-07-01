@@ -47,50 +47,47 @@
   </router-link>
 </template>
 
-<script>
-import { ref, reactive, provide } from "vue";
+<script setup lang="ts">
+import { ref, reactive, defineProps } from "vue";
 import MyCounter from "./MyCounter.vue";
 import { useNotification } from "naive-ui";
 
-export default {
-  components: { MyCounter },
-  props: {
-    item: Object
-  },
-  setup(props) {
-    let showModal = ref(false);
-    const checkedValue = ref(null);
-    const notification = useNotification();
-    const isLoadingBasket = reactive({ value: false });
-    const isLoadingFavorite = reactive({ value: false });
-    return {
-      handleChange(e) {
-        checkedValue.value = e.target.value;
-      },
-      openModal() {
-        showModal.value = true;
-      },
-      addProduct(type, isLoading, text) {
-        isLoading.value = true;
-        setTimeout(() => {
-          isLoading.value = false;
-          showModal.value = false;
-          notification[type]({
-            content: `Товар ${props.item.name}`,
-            meta: `добавлен в ${text}`,
-            duration: 3000
-          });
-        }, 1000);
-        console.log(isLoading);
-      },
-      isLoadingFavorite,
-      isLoadingBasket,
-      checkedValue,
-      showModal
-    };
+const props = defineProps<{
+  item: {
+    id: Number,
+    src: String,
+    name: String,
+    price: Number,
+    totalPrice: Number,
+    countProduct: Number,
+    sales: Number
   }
-}
-;
+}>();
+
+let showModal = ref(false);
+const checkedValue = ref(null);
+const notification = useNotification();
+const isLoadingBasket = reactive({ value: false });
+const isLoadingFavorite = reactive({ value: false });
+
+const handleChange = (e) => {
+  checkedValue.value = e.target.value;
+};
+const openModal = (e) => {
+  showModal.value = true;
+};
+const addProduct = (type, isLoading, text) => {
+  isLoading.value = true;
+  setTimeout(() => {
+    isLoading.value = false;
+    showModal.value = false;
+    notification[type]({
+      content: `Товар ${props.item.name}`,
+      meta: `добавлен в ${text}`,
+      duration: 3000
+    });
+  }, 1000);
+};
 </script>
 
 <style lang="scss" scoped>
