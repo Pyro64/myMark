@@ -22,10 +22,10 @@
           @close="showModal = false "
         >
           <div class="modalBlock">
-            <my-counter />
+            <my-counter :card="item" />
             <div class="card__wrapper">
               <div class="card__sum">Итоговая стоимость:</div>
-              <div class="card__price">{{ item.price }} ₽</div>
+              <div class="card__price">{{ item.totalPrice }} ₽</div>
             </div>
           </div>
 
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { ref, reactive, watch } from "vue";
+import { ref, reactive, provide } from "vue";
 import MyCounter from "./MyCounter.vue";
 import { useNotification } from "naive-ui";
 
@@ -156,7 +156,7 @@ export default {
   }
 
   &__price {
-    @include fluid(margin-right, 5px, 10px);
+
     @include fluid(font-size, 12px, 16px);
     user-select: none;
     color: $red;
@@ -165,6 +165,7 @@ export default {
 
   &__sales {
     @include fluid(font-size, 12px, 16px);
+    @include fluid(margin-left, 5px, 10px);
     font-weight: 500;
     text-decoration: line-through;
     color: #666666;

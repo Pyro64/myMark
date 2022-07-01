@@ -14,7 +14,9 @@ export const useProductsCardStore = defineStore({
         id: 1,
         src: card1,
         name: "Риббон Wax/Resin 110 мм х 74 м",
-        price: 1_459,
+        price: 100,
+        totalPrice: 100,
+        countProduct: 1,
         sales: 1_899
       },
       {
@@ -22,6 +24,8 @@ export const useProductsCardStore = defineStore({
         src: card2,
         name: "Этикет-лента 26×16 мм, прямоугольная, белая",
         price: 459,
+        totalPrice: 459,
+        countProduct: 1,
         sales: null
       },
       {
@@ -29,6 +33,8 @@ export const useProductsCardStore = defineStore({
         src: card3,
         name: "Этикет-пистолет, 22×12 мм, MOTEX МХ-5500PLUS ",
         price: 4000,
+        totalPrice: 4000,
+        countProduct: 1,
         sales: null
       },
       {
@@ -36,6 +42,8 @@ export const useProductsCardStore = defineStore({
         src: card4,
         name: "Этикетка ТермоЭко (100×100 мм)",
         price: 2000,
+        totalPrice: 2000,
+        countProduct: 1,
         sales: 2500
       },
       {
@@ -43,6 +51,8 @@ export const useProductsCardStore = defineStore({
         src: card5,
         name: "Ценник малый «Цена» 30×20 мм, белый",
         price: 1500,
+        totalPrice: 1500,
+        countProduct: 1,
         sales: null
       },
       {
@@ -50,6 +60,8 @@ export const useProductsCardStore = defineStore({
         src: card6,
         name: "Этикетка для документов самоклеящаяся, 74×40мм",
         price: 150,
+        totalPrice: 150,
+        countProduct: 1,
         sales: 2000
       },
       {
@@ -57,6 +69,8 @@ export const useProductsCardStore = defineStore({
         src: card1,
         name: "Риббон Wax/Resin 110 мм х 74 м OUT",
         price: 2000,
+        totalPrice: 2000,
+        countProduct: 1,
         sales: null
       },
       {
@@ -64,10 +78,11 @@ export const useProductsCardStore = defineStore({
         src: card2,
         name: "Риббон Wax/Resin 110 мм х 74 м OUT",
         price: 248,
+        totalPrice: 248,
+        countProduct: 1,
         sales: 456
       }
-    ],
-    countProduct: 1
+    ]
   }),
   getters: {
     getProductById: (state) => {
@@ -75,11 +90,16 @@ export const useProductsCardStore = defineStore({
     }
   },
   actions: {
-    incrementProduct() {
-      this.countProduct++;
+    totalPriceProduct(card) {
+      card.totalPrice = card.countProduct * card.price;
     },
-    decrementProduct() {
-      this.countProduct--;
+    incrementProduct(card) {
+      card.countProduct++;
+      card.totalPrice = card.price * card.countProduct;
+    },
+    decrementProduct(card) {
+      card.countProduct--;
+      card.totalPrice = card.totalPrice - card.price;
     }
   }
 });
