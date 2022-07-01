@@ -1,5 +1,5 @@
 <template>
-  <svg :class="{'minus__disabled': countProduct === 1}"
+  <svg :class="{'minus__disabled': card.countProduct === 1}"
        class="minus" xmlns="http://www.w3.org/2000/svg"
        xmlns:xlink="http://www.w3.org/1999/xlink"
        viewBox="0 0 512 512">
@@ -9,18 +9,14 @@
 </template>
 
 <script>
-import { storeToRefs } from "pinia/dist/pinia";
-import { useProductsCardStore } from "../../stores/productCard";
 
 
 export default {
   name: "MyMinus",
+  props: {
+    card: Object
+  },
   setup() {
-    const storeProducts = storeToRefs(useProductsCardStore());
-    const { countProduct } = storeProducts;
-    return {
-      countProduct
-    };
   }
 };
 </script>

@@ -1,8 +1,9 @@
 <template>
   <div class="counter">
-    <my-minus @click="decrementProduct(card)" />
+    <my-minus :card="card" @click="decrementProduct(card)" />
     <div class="counter__block">
-      <input v-focus type="number" min="1" max="99" class="counter__input" v-model.number="card.countProduct"
+      <input v-focus type="number" min="1" max="99"
+             class="counter__input" v-model.number="card.countProduct"
              :change="totalPriceProduct(card)" />
       <div class="counter__type">шт.</div>
     </div>
