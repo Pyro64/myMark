@@ -3,7 +3,7 @@
   <product-catalog />
   <home-banner :container="true" />
   <slider-card :slides="products" v-slot:default="slotProps" title="Популярные товары"
-               prev="product-prev" next="product-next" slidesView="6">
+               prev="product-prev" next="product-next" :slidesView="6">
     <card-product :item="slotProps.slide" />
   </slider-card>
   <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка

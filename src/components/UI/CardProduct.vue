@@ -47,12 +47,12 @@
   </router-link>
 </template>
 
-<script setup lang="ts">
-import { ref, reactive, defineProps } from "vue";
+<script setup >
+import { ref, reactive, } from "vue";
 import MyCounter from "./MyCounter.vue";
 import { useNotification } from "naive-ui";
 
-const props = defineProps<{
+const props = defineProps({
   item: {
     id: Number,
     src: String,
@@ -62,7 +62,7 @@ const props = defineProps<{
     countProduct: Number,
     sales: Number
   }
-}>();
+});
 
 let showModal = ref(false);
 const checkedValue = ref(null);

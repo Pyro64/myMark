@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
   </div>
 </template>
 
@@ -9,7 +8,7 @@ export default {
   props: {
     product: {
       type: Object,
-      required: true
+      required: false
     }
   },
   setup() {

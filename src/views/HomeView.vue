@@ -2,13 +2,13 @@
   <home-banner />
   <home-link />
   <slider-card :slides="products" v-slot:default="slotProps" title="Популярные товары" link="/products" :isLink="true"
-               prev="product-prev" next="product-next" slidesView="6">
+               prev="product-prev" next="product-next" :slidesView="6">
     <card-product :item="slotProps.slide" />
   </slider-card>
   <advertising-images />
   <slider-card :slides="categories" v-slot:default="slotProps" title="Популярные категории" link="/category"
                :isLink="true"
-               prev="category-prev" next="category-next" slidesView="4">
+               prev="category-prev" next="category-next" :slidesView="4">
     <card-category :item="slotProps.slide" />
   </slider-card>
   <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка

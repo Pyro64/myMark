@@ -8,17 +8,13 @@
   </svg>
 </template>
 
-<script>
-
-
-export default {
-  name: "MyMinus",
-  props: {
-    card: Object
-  },
-  setup() {
+<script setup>
+const props = defineProps({
+  card: {
+    type: Object,
+    required: false,
   }
-};
+})
 </script>
 
 <style lang="scss" scoped>

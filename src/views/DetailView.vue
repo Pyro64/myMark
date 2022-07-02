@@ -6,11 +6,11 @@
     title="Нашли дешевле?" text="Снизим цену специально для вас" to="/"
     :img="priceBannerImg" />
   <slider-card :slides="products" v-slot:default="slotProps" title="Сопутствующие товары"
-               prev="concomitant-prev" next="concomitant-next" slidesView="6">
+               prev="concomitant-prev" next="concomitant-next" :slidesView="6">
     <card-product :item="slotProps.slide" />
   </slider-card>
   <slider-card :slides="products" v-slot:default="slotProps" title="Вы просматривали"
-               prev="watch-prev" next="watch-next" slidesView="6">
+               prev="watch-prev" next="watch-next" :slidesView="6">
     <card-product :item="slotProps.slide" />
   </slider-card>
   <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
