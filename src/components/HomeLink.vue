@@ -23,13 +23,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import MyTitle from "./UI/MyTitle.vue";
-
-export default {
-  name: "HomeLink",
-  components: { MyTitle }
-};
 </script>
 <style lang="scss" scoped>
 @import '../assets/styles/mixins.scss';

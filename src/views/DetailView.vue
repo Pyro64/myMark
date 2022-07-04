@@ -1,6 +1,6 @@
 <template>
   <my-breadcrumb :routes="routes" />
-  <product-detail :product="product" />
+  <product-detail />
   <info-banner
     background="linear-gradient(180deg, #ECECEA 0%, #E4E4E2 47.45%, #DFE0DD 73.39%, #D9D9D7 100%)"
     title="Нашли дешевле?" text="Снизим цену специально для вас" to="/"

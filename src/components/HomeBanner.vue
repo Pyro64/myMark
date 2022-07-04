@@ -2,29 +2,34 @@
   <div class="banner" :class="{'container': container}">
     <div class="banner__block">
       <div class="banner__item">
-        <div class="banner__text">Готовы предложить</div>
-        <div class="banner__title">Печать этикеток для OZON</div>
-        <div class="banner__text">Быстро и качественно</div>
-        <n-button class="banner__button">Заказать</n-button>
+        <div class="banner__text">{{ banner.text }}</div>
+        <div class="banner__title">{{ banner.title }}</div>
+        <div class="banner__text">{{ banner.subtitle }}</div>
+        <n-button class="banner__button">{{ banner.btn }}</n-button>
       </div>
       <img
         class="banner__img"
-        src="../assets/images/home-banner.png"
+        :src="banner.img"
         alt="banner"
       />
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    container: Boolean
+<script setup>
+const props = defineProps({
+  container: {
+    type: Boolean,
+    required: false
   },
-  setup() {
-    return {};
+  banner: {
+    text: String,
+    title: String,
+    subtitle: String,
+    btn: String,
+    img: String
   }
-};
+});
 </script>
 <style lang="scss" scoped>
 @import "../assets/styles/mixins.scss";
@@ -72,6 +77,13 @@ export default {
     background: $red;
     border-radius: 25px;
     outline: none;
+  }
+
+  &__img {
+    @include fluid(height, 300px, 430px);
+    width: 50%;
+    object-fit: contain;
+
   }
 }
 </style>

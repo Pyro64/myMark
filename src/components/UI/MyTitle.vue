@@ -4,14 +4,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: String,
-    minMargin: Boolean,
-    margin: Boolean
-  }
-};
+<script setup>
+const props = defineProps({
+  title: String,
+  minMargin: Boolean,
+  margin: Boolean
+});
 </script>
 
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@
   <div class="homeSlide">
     <div v-if="isLink === true" class="homeSlide__block">
       <div v-show="slides.length  > slidesView" class="homeSlide__item">
-        <my-title :margin="false" :title="title"/>
+        <my-title :margin="false" :title="title" />
         <div class="arrow arrow__prev" :class="prev">
           <img class="icon" src="../assets/images/icon/arrow-left.svg">
         </div>
@@ -13,7 +13,7 @@
       <router-link :to="link" class="homeSlide__link">Весь каталог</router-link>
     </div>
     <div v-else class="homeSlide__block">
-      <my-title :margin="false" :title="title"/>
+      <my-title :margin="false" :title="title" />
       <div v-show="slides.length  > slidesView" class="homeSlide__item">
         <div class="arrow arrow__prev" :class="prev">
           <img class="icon" src="../assets/images/icon/arrow-left.svg">
@@ -24,27 +24,26 @@
       </div>
     </div>
     <swiper
-        :navigation="{nextEl: `.${next}`,prevEl: `.${prev}`,}"
-        :modules="modules"
-        :slides-per-view="slidesView"
-        :space-between="40"
-        :allowTouchMove="false"
-        :slidesPerGroup="slidesView"
-        :speed="600"
+      :navigation="{nextEl: `.${next}`,prevEl: `.${prev}`,}"
+      :modules="modules"
+      :slides-per-view="slidesView"
+      :space-between="40"
+      :allowTouchMove="false"
+      :slidesPerGroup="slidesView"
+      :speed="600"
     >
       <swiper-slide v-for="slide in slides" :key="slide.id">
-        <slot :slide="slide"/>
+        <slot :slide="slide" />
       </swiper-slide>
     </swiper>
   </div>
 </template>
 <script setup>
-import {Navigation} from "swiper";
-import {Swiper, SwiperSlide} from "swiper/vue";
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
-import MyTitle from "./UI/MyTitle.vue";
 import "swiper/scss/navigation";
-
+import MyTitle from "./UI/MyTitle.vue";
 
 const props = defineProps({
   slides: Array,
@@ -54,8 +53,8 @@ const props = defineProps({
   next: String,
   slidesView: Number,
   isLink: Boolean
-})
-const modules = [Navigation]
+});
+const modules = [Navigation];
 </script>
 <style lang="scss" scoped>
 @import '../assets/styles/mixins.scss';

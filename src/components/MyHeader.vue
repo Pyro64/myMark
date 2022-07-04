@@ -10,20 +10,11 @@
   </header>
 </template>
 
-<script>
+<script setup>
 import HeaderIcon from "./HeaderIcon.vue";
 import MyLogo from "./MyLogo.vue";
 import MyNav from "./MyNav.vue";
 import logo from "../assets/images/logo.svg";
-
-export default {
-  setup() {
-    return {
-      logo
-    };
-  },
-  components: { MyLogo, MyNav, HeaderIcon }
-};
 </script>
 
 <style lang="scss" scoped>

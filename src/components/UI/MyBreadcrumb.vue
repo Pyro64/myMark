@@ -7,16 +7,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "MyBreadcrumb",
-  props: {
-    routes: Array
-  },
-  setup() {
-
-  }
-};
+<script setup>
+const props = defineProps({
+  routes: Array
+});
 </script>
 
 <style scoped lang="scss">

@@ -21,13 +21,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import MyTitle from "./UI/MyTitle.vue";
-
-export default {
-  name: "AdvertisingImages",
-  components: { MyTitle }
-};
 </script>
 
 <style lang="scss" scoped>

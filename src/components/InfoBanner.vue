@@ -12,29 +12,26 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "InfoBanner",
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    text: {
-      type: String,
-      required: true
-    },
-    to: {
-      type: String,
-      required: true
-    },
-    img: {
-      type: String,
-      required: true
-    },
-    background: String
-  }
-};
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  text: {
+    type: String,
+    required: true
+  },
+  to: {
+    type: String,
+    required: true
+  },
+  img: {
+    type: String,
+    required: true
+  },
+  background: String
+});
 </script>
 
 <style lang="scss" scoped>

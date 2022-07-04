@@ -1,20 +1,11 @@
 <template>
   <div class="container">
+    работа на завтра
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    product: {
-      type: Object,
-      required: false
-    }
-  },
-  setup() {
+<script setup>
 
-  }
-};
 </script>
 
 <style lang="scss" scoped>

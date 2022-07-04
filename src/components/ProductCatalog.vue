@@ -10,37 +10,29 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import catalog1 from "../assets/images/catalog/p-catalog-1.png";
 import catalog2 from "../assets/images/catalog/p-catalog-2.png";
 import catalog3 from "../assets/images/catalog/p-catalog-3.png";
 import MyTitle from "./UI/MyTitle.vue";
 
-export default {
-  components: { MyTitle },
-  setup() {
-    const catalogs = [
-      {
-        id: 1,
-        img: catalog1,
-        text: "Курьерские пакеты"
-      },
-      {
-        id: 2,
-        img: catalog2,
-        text: "Термоэтикетки"
-      },
-      {
-        id: 3,
-        img: catalog3,
-        text: "Стрейч пленка"
-      }
-    ];
-    return {
-      catalogs
-    };
+const catalogs = [
+  {
+    id: 1,
+    img: catalog1,
+    text: "Курьерские пакеты"
+  },
+  {
+    id: 2,
+    img: catalog2,
+    text: "Термоэтикетки"
+  },
+  {
+    id: 3,
+    img: catalog3,
+    text: "Стрейч пленка"
   }
-};
+];
 </script>
 
 <style lang="scss" scoped>

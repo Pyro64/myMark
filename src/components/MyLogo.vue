@@ -5,15 +5,10 @@
 
 </template>
 
-<script>
-export default {
-  props: {
-    logo: String
-  },
-  setup() {
-    return {};
-  }
-};
+<script setup>
+const props = defineProps({
+  logo: String
+});
 </script>
 
 <style lang="scss" scoped>

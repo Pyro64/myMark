@@ -9,10 +9,7 @@
   </svg>
 </template>
 
-<script>
-export default {
-  name: "MyPlus"
-};
+<script setup>
 </script>
 
 <style lang="scss" scoped>

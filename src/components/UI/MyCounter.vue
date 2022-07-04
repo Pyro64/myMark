@@ -11,26 +11,15 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import MyPlus from "../icon/MyPlus.vue";
 import MyMinus from "../icon/MyMinus.vue";
 import { useProductsCardStore } from "../../stores/productCard";
 
-export default {
-  name: "MyCounter",
-  components: { MyMinus, MyPlus },
-  props: {
-    card: Object
-  },
-  setup(props) {
-    const { incrementProduct, decrementProduct, totalPriceProduct } = useProductsCardStore();
-    return {
-      totalPriceProduct,
-      incrementProduct,
-      decrementProduct
-    };
-  }
-};
+const props = defineProps({
+  card: Object
+});
+const { incrementProduct, decrementProduct, totalPriceProduct } = useProductsCardStore();
 </script>
 
 <style lang="scss" scoped>

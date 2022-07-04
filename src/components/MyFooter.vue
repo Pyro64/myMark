@@ -39,19 +39,9 @@
   </footer>
 </template>
 
-<script>
+<script setup>
 import MyLogo from "./MyLogo.vue";
 import logo from "../assets/images/light-logo.svg";
-
-export default {
-  name: "MyFooter",
-  components: { MyLogo },
-  setup() {
-    return {
-      logo
-    };
-  }
-};
 </script>
 
 <style lang="scss" scoped>
