@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'title__minMargin': minMargin , 'title__noMargin': margin}" class="title">
+  <div :class="{'title__minMargin': minMargin , 'title__noMargin': noMargin}" class="title">
     {{ title }}
   </div>
 </template>
@@ -8,7 +8,7 @@
 const props = defineProps({
   title: String,
   minMargin: Boolean,
-  margin: Boolean
+  noMargin: Boolean
 });
 </script>
 

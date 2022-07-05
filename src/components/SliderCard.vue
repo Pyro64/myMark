@@ -2,7 +2,7 @@
   <div class="homeSlide">
     <div v-if="isLink === true" class="homeSlide__block">
       <div v-show="slides.length  > slidesView" class="homeSlide__item">
-        <my-title :margin="false" :title="title" />
+        <my-title :noMargin="true" :title="title" />
         <div class="arrow arrow__prev" :class="prev">
           <img class="icon" src="../assets/images/icon/arrow-left.svg">
         </div>

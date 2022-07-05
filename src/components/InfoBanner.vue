@@ -43,7 +43,7 @@ const props = defineProps({
 
   &__block {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
     background: #E9ECEF;
 

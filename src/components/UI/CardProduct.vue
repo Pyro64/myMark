@@ -47,8 +47,8 @@
   </router-link>
 </template>
 
-<script setup >
-import { ref, reactive, } from "vue";
+<script setup>
+import { ref, reactive } from "vue";
 import MyCounter from "./MyCounter.vue";
 import { useNotification } from "naive-ui";
 
@@ -103,7 +103,7 @@ const addProduct = (type, isLoading, text) => {
   justify-content: space-between;
 
   &:hover {
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    @include hover;
   }
 
   &__block {

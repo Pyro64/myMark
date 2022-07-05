@@ -43,7 +43,7 @@ import MyTitle from "./UI/MyTitle.vue";
   transition: $trn;
 
   &:hover {
-    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+    @include hover;
 
     .nameArrow {
       &::before {

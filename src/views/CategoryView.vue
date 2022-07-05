@@ -20,7 +20,7 @@ import ProductCatalog from "../components/ProductCatalog.vue";
 import MyBreadcrumb from "../components/UI/MyBreadcrumb.vue";
 import supportBannerImg from "../assets/images/support-banner.png";
 import InfoBanner from "../components/InfoBanner.vue";
-import card1 from "../assets/images/card/card-1.png";
+import banner1 from "../assets/images/banner-1.png";
 
 const storeProducts = storeToRefs(useProductsCardStore());
 const { products } = storeProducts;
@@ -38,12 +38,11 @@ const routes = [
 ];
 const banner = {
   id: 1,
-  src: card1,
-  name: "Риббон Wax/Resin 110 мм х 74 м",
-  price: 100,
-  totalPrice: 100,
-  countProduct: 1,
-  sales: 1_899
+  text: "Готовы предложить",
+  title: "Печать этикеток для OZON",
+  subtitle: "Быстро и качественно",
+  btn: "Заказать",
+  img: banner1
 };
 </script>
 
