@@ -11,10 +11,10 @@
 </template>
 
 <script setup>
-import catalog1 from "../assets/images/catalog/p-catalog-1.png";
-import catalog2 from "../assets/images/catalog/p-catalog-2.png";
-import catalog3 from "../assets/images/catalog/p-catalog-3.png";
-import MyTitle from "./UI/MyTitle.vue";
+import catalog1 from "../../assets/images/catalog/p-catalog-1.png";
+import catalog2 from "../../assets/images/catalog/p-catalog-2.png";
+import catalog3 from "../../assets/images/catalog/p-catalog-3.png";
+import MyTitle from "../UI/MyTitle.vue";
 
 const catalogs = [
   {
@@ -36,7 +36,7 @@ const catalogs = [
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/styles/mixins.scss';
+@import '../../assets/styles/mixins';
 
 .productCatalog {
   @include container;

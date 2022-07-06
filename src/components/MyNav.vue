@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link class="navlink" to="/products">Каталог</router-link>
+    <router-link class="navlink" to="/category">Каталог</router-link>
     <router-link class="navlink" to="/services">Услуги</router-link>
     <router-link class="navlink" to="/about">О нас</router-link>
     <router-link class="navlink" to="/delivery">Оплата и доставка</router-link>

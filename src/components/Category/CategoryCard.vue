@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/mixins.scss';
+@import '../../assets/styles/mixins';
 
 .category {
   @include fluid(min-height, 350px, 380px);

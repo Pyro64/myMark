@@ -1,13 +1,13 @@
 <template>
   <div class="counter">
-    <my-minus :card="card" @click="decrementProduct(card)" />
+    <my-minus :card="product" @click="decrementProduct(product)" />
     <div class="counter__block">
       <input v-focus type="number" min="1" max="99"
-             class="counter__input" v-model.number="card.countProduct"
-             :change="totalPriceProduct(card)" />
+             class="counter__input" v-model.number="product.countProduct"
+             :change="totalPriceProduct(product)" />
       <div class="counter__type">шт.</div>
     </div>
-    <my-plus @click="incrementProduct(card)" />
+    <my-plus @click="incrementProduct(product)" />
   </div>
 </template>
 
@@ -17,7 +17,15 @@ import MyMinus from "../icon/MyMinus.vue";
 import { useProductsCardStore } from "../../stores/productCard";
 
 const props = defineProps({
-  card: Object
+  product: {
+    id: Number,
+    src: String,
+    name: String,
+    price: Number,
+    totalPrice: Number,
+    countProduct: Number,
+    sales: Number
+  }
 });
 const { incrementProduct, decrementProduct, totalPriceProduct } = useProductsCardStore();
 </script>
@@ -43,6 +51,7 @@ const { incrementProduct, decrementProduct, totalPriceProduct } = useProductsCar
 
   &__input {
     @include fluid(font-size, 12px, 16px);
+    background: inherit;
     color: $black;
     outline: none;
     width: 20px;

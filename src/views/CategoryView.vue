@@ -1,10 +1,10 @@
 <template>
   <my-breadcrumb :routes="routes" />
-  <product-catalog />
+  <category-catalog />
   <home-banner :banner="banner" :container="true" />
   <slider-card :slides="products" v-slot:default="slotProps" title="Популярные товары"
                prev="product-prev" next="product-next" :slidesView="6">
-    <card-product :item="slotProps.slide" />
+    <product-card :product="slotProps.slide" />
   </slider-card>
   <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
 работает для вас без выходных" to="/" :img="supportBannerImg" />
@@ -14,9 +14,9 @@
 import HomeBanner from "../components/HomeBanner.vue";
 import SliderCard from "../components/SliderCard.vue";
 import { storeToRefs } from "pinia/dist/pinia";
-import CardProduct from "../components/UI/CardProduct.vue";
+import ProductCard from "../components/Product/ProductCard.vue";
 import { useProductsCardStore } from "../stores/productCard";
-import ProductCatalog from "../components/ProductCatalog.vue";
+import CategoryCatalog from "../components/Category/CategoryCatalog.vue";
 import MyBreadcrumb from "../components/UI/MyBreadcrumb.vue";
 import supportBannerImg from "../assets/images/support-banner.png";
 import InfoBanner from "../components/InfoBanner.vue";

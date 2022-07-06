@@ -83,20 +83,7 @@ export const useProductsCardStore = defineStore({
         countProduct: 1,
         sales: 456
       }
-    ],
-    detailProduct: {
-      Images: [
-        {
-          id: 1,
-          image: detailCard
-        }
-      ],
-      Price: 2_876,
-      DiscountPrice: 5_659,
-      Code: 268661337,
-      Brand: "MOTEX",
-      Rating: 4.5
-    }
+    ]
   }),
   getters: {
     getProductById: (state) => {
