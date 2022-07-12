@@ -38,11 +38,7 @@
             <div class="detail__control">
               <product-control :product="product" />
             </div>
-            <n-rate :default-value="4" readonly color="#FF2149">
-              <n-icon size="30">
-                <my-star />
-              </n-icon>
-            </n-rate>
+            <my-tab />
           </div>
         </div>
       </div>
@@ -55,6 +51,7 @@ import detail from "../../assets/images/card/detail-card-3.png";
 import pistol from "../../assets/images/card/table-pistol.png";
 import MyStar from "../icon/MyStar.vue";
 import ProductControl from "./ProductControl.vue";
+import MyTab from "../UI/MyTab.vue";
 
 const props = defineProps({
   product: {
@@ -77,6 +74,10 @@ const props = defineProps({
 }
 
 .detail {
+  &__pane {
+    color: $black;
+  }
+
   &__images {
     width: 49%;
     display: flex;

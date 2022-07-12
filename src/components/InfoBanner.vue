@@ -1,6 +1,6 @@
 <template>
   <div class="support">
-    <div :style="{background: `${background}`}" class="support__block">
+    <div class="support__block">
       <div class="support__item">
         <div class="support__title">{{ title }}</div>
         <div class="support__text">{{ text }}
@@ -29,8 +29,7 @@ const props = defineProps({
   img: {
     type: String,
     required: true
-  },
-  background: String
+  }
 });
 </script>
 
@@ -42,28 +41,27 @@ const props = defineProps({
   @include fluid(margin-bottom, 25px, 50px);
 
   &__block {
+    @include fluid(height, 300px, 490px);
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    background: #E9ECEF;
-
-    &:hover {
-      .support {
-        &__link {
-
-        }
-      }
-    }
   }
 
   &__item {
     width: 48%;
+    position: relative;
+    z-index: 2;
     @include fluid(padding, 50px, 100px);
   }
 
   &__img {
-    width: 50%;
-    @include fluid(height, 300px, 490px);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
     object-fit: cover;
     object-position: top;
   }
