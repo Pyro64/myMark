@@ -1,20 +1,21 @@
 <template>
-  <div class="container">
     <div class="detail">
-      <div class="flex  justify-between">
-        <n-image-group>
-          <div class="detail__images">
-            <div class="detail__image">
-              <n-image class="w-full h-full" object-fit="contain" :src="detail" alt="img" />
-            </div>
-            <div class="detail__image">
-              <n-image class="w-full h-full" object-fit="contain" :src="pistol" alt="img" />
-            </div>
-            <div class="detail__image">
-              <n-image class="w-full h-full" object-fit="contain" :src="product.src" alt="img" />
-            </div>
+      <div class="flex  justify-between items-start">
+          <div class="detail__sticky">
+            <n-image-group>
+              <div class="detail__images">
+                <div class="detail__image">
+                  <n-image class="w-full h-full" object-fit="contain" :src="detail" alt="img" />
+                </div>
+                <div class="detail__image">
+                  <n-image class="w-full h-full" object-fit="contain" :src="pistol" alt="img" />
+                </div>
+                <div class="detail__image">
+                  <n-image class="w-full h-full" object-fit="contain" :src="product.src" alt="img" />
+                </div>
+              </div>
+            </n-image-group>
           </div>
-        </n-image-group>
         <div class="detail__block">
           <div class="detail__card">
             <div class="flex items-center justify-between mb-6">
@@ -43,7 +44,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -69,19 +69,22 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import '../../assets/styles/mixins';
 
-.container {
-  @include container;
-}
-
 .detail {
+  @include container;
+  @include fluid(margin-bottom, 50px, 100px);
   &__pane {
     color: $black;
   }
-
-  &__images {
+  &__sticky {
     width: 49%;
+    position: sticky;
+    @include fluid(top, 10px, 20px);
+
+  }
+  &__images {
     display: flex;
     flex-wrap: wrap;
+
   }
 
   &__block {
@@ -146,7 +149,6 @@ const props = defineProps({
       font-weight: 500;
     }
   }
-
   &__image {
     @include fluid(margin-bottom, 20px, 40px);
     @include fluid(padding, 10px, 20px);

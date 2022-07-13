@@ -2,66 +2,62 @@
   <div class="review">
     <div class="review__block">
       <div class="review__item">
-        <img class="review__avatar" src="../assets/images/avatar.png">
-        <div class="review__name">Александр</div>
+        <n-image class="review__avatar" :src="review.img" :show-toolbar="false"	/>
+        <div class="review__name">{{review.name}}</div>
       </div>
       <div class="review__item">
-        <div class="review__date">17 февраля 2022</div>
-        <n-rate :default-value="4" readonly color="#FF2149">
+        <div class="review__date">{{review.date}}</div>
+        <n-rate :default-value="review.rate" readonly color="#FF2149">
           <n-icon size="30">
-            <my-star />
+            <my-star/>
           </n-icon>
         </n-rate>
       </div>
     </div>
     <div class="review__content">
-      <p>В общем, инвестиция интегрирована. Рекламное сообщество нейтрализует жизненный цикл продукции. Conversion rate
-        существенно тормозит институциональный клиентский спрос. Несмотря на сложности, сущность
-        и концепция маркетинговой программы изменяет эксклюзивный конкурент. Осведомленность о бренде без оглядки на
-        авторитеты изоморфна времени.
-      </p>
+      <p>{{review.text}}</p>
     </div>
     <div class="review__control">
       <div class="review__control-block">
         <n-button
-          :bordered="false"
-          type="success"
-          :class="{'like':isLike == true}"
-          :disabled="isLoading"
-          @click="setLike"
-          class="review__btn review__btn--like">
+            :bordered="false"
+            type="success"
+            :class="{'like':isLike == true}"
+            :disabled="isLoading"
+            @click="setLike"
+            class="review__btn review__btn--like">
           <template #icon>
             <n-icon>
-              <my-like />
+              <my-like/>
             </n-icon>
           </template>
-          <span>Полезно ({{ countLike }})</span>
+          <span>Полезно ({{ review.like }})</span>
         </n-button>
         <n-button
-          :bordered="false"
-          :class="{'dislike':isDislike == true}"
-          :disabled="isLoading"
-          @click="setDislike"
-          class="review__btn review__btn--dislike"
+            :bordered="false"
+            :class="{'dislike':isDislike == true}"
+            :disabled="isLoading"
+            @click="setDislike"
+            class="review__btn review__btn--dislike"
         >
           <template #icon>
             <n-icon>
-              <my-dislike />
+              <my-dislike/>
             </n-icon>
           </template>
-          <span>Не полезно ({{ countDislike }})</span>
+          <span>Не полезно ({{ review.dislike }})</span>
         </n-button>
       </div>
       <div class="review__control-block">
         <n-button
-          :bordered="false"
-          :disabled="isLoading"
-          class="review__complain"
-          @click="loading"
+            :bordered="false"
+            :disabled="isLoading"
+            class="review__complain"
+            @click="loading"
         >
           <template #icon>
             <n-icon>
-              <my-info />
+              <my-info/>
             </n-icon>
           </template>
           <span>Пожаловаться</span>
@@ -75,10 +71,22 @@
 import MyStar from "./icon/MyStar.vue";
 import MyLike from "./icon/MyLike.vue";
 import MyDislike from "./icon/MyDislike.vue";
-import { ref } from "vue";
+import {ref} from "vue";
 import MyInfo from "./icon/MyInfo.vue";
-import { useMessage } from "naive-ui";
+import {useMessage} from "naive-ui";
 
+const props = defineProps({
+  review: {
+    id: Number,
+    name: String,
+    img: String,
+    date: String,
+    text: String,
+    rate: Number,
+    like: Number,
+    dislike: Number,
+  }
+})
 const message = useMessage();
 const isLike = ref(false);
 const isDislike = ref(false);
@@ -105,12 +113,12 @@ const setDislike = () => {
 const loading = () => {
   isLoading.value = true;
   message.loading(
-    "Ожидание"
+      "Ожидание"
   );
   setTimeout(() => {
     isLoading.value = false;
     message.success(
-      "Пост отправлен на проверку модератору"
+        "Пост отправлен на проверку модератору"
     );
   }, 3000);
 };
