@@ -28,8 +28,5 @@ svg {
   @include fluid(height, 16px, 20px);
   @include fluid(width, 16px, 20px);
 
-  path {
-    fill: $black;
-  }
 }
 </style>

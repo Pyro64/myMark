@@ -22,18 +22,51 @@
       </p>
     </div>
     <div class="review__control">
-      <div class="review__grade">
-        <my-like />
-        <div class="review__grade-text"> Полезно (1)</div>
+      <div class="review__control-block">
+        <n-button
+          :bordered="false"
+          type="success"
+          :class="{'like':isLike == true}"
+          :disabled="isLoading"
+          @click="setLike"
+          class="review__btn review__btn--like">
+          <template #icon>
+            <n-icon>
+              <my-like />
+            </n-icon>
+          </template>
+          <span>Полезно ({{ countLike }})</span>
+        </n-button>
+        <n-button
+          :bordered="false"
+          :class="{'dislike':isDislike == true}"
+          :disabled="isLoading"
+          @click="setDislike"
+          class="review__btn review__btn--dislike"
+        >
+          <template #icon>
+            <n-icon>
+              <my-dislike />
+            </n-icon>
+          </template>
+          <span>Не полезно ({{ countDislike }})</span>
+        </n-button>
       </div>
-      <n-button color="#ff69b4">
-        <template #icon>
-          <n-icon>
-            <my-like />
-          </n-icon>
-        </template>
-        #ff69b4
-      </n-button>
+      <div class="review__control-block">
+        <n-button
+          :bordered="false"
+          :disabled="isLoading"
+          class="review__complain"
+          @click="loading"
+        >
+          <template #icon>
+            <n-icon>
+              <my-info />
+            </n-icon>
+          </template>
+          <span>Пожаловаться</span>
+        </n-button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,6 +74,46 @@
 <script setup>
 import MyStar from "./icon/MyStar.vue";
 import MyLike from "./icon/MyLike.vue";
+import MyDislike from "./icon/MyDislike.vue";
+import { ref } from "vue";
+import MyInfo from "./icon/MyInfo.vue";
+import { useMessage } from "naive-ui";
+
+const message = useMessage();
+const isLike = ref(false);
+const isDislike = ref(false);
+const isLoading = ref(false);
+const countLike = ref(1);
+const countDislike = ref(12);
+const setLike = () => {
+  isLike.value = !isLike.value;
+  isDislike.value = false;
+  isLoading.value = true;
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 1000);
+};
+
+const setDislike = () => {
+  isDislike.value = !isDislike.value;
+  isLike.value = false;
+  isLoading.value = true;
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 1000);
+};
+const loading = () => {
+  isLoading.value = true;
+  message.loading(
+    "Ожидание"
+  );
+  setTimeout(() => {
+    isLoading.value = false;
+    message.success(
+      "Пост отправлен на проверку модератору"
+    );
+  }, 3000);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -104,6 +177,84 @@ import MyLike from "./icon/MyLike.vue";
       @include fluid(margin-left, 6px, 10px);
       font-weight: 500;
       color: $black;
+    }
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__complain {
+    border-radius: 999px;
+  }
+
+  &__btn {
+    @include fluid(margin-right, 7px, 15px);
+    @include fluid(padding-top, 4px, 8px);
+    @include fluid(padding-bottom, 4px, 8px);
+    @include fluid(padding-left, 10px, 15px);
+    @include fluid(padding-right, 10px, 15px);
+    background: #F5F5F5;
+    border-radius: 999px;
+    border: none;
+    outline: none;
+
+    span {
+      @include fluid(margin-left, 4px, 8px);
+      @include fluid(font-size, 12px, 14px);
+      font-weight: 500;
+    }
+
+    &--like {
+      color: $black;
+
+      &:hover {
+        background: #F5F5F5;
+        color: $green;
+      }
+
+      &:focus {
+        background: #F5F5F5;
+        color: $green;
+      }
+    }
+
+    &--dislike {
+      &:focus {
+        background: #F5F5F5;
+      }
+    }
+  }
+
+  .like {
+    background: $green;
+    color: #fff;
+
+    &:focus-visible {
+      background: $green;
+      color: #fff;
+    }
+
+    &:disabled {
+      background: $green;
+      color: #fff;
+    }
+  }
+
+  .dislike {
+    background: $red;
+    color: #fff;
+
+    &:focus-visible {
+      background: $red;
+      color: #fff;
+    }
+
+    &:disabled {
+      background: $red;
+      color: #fff;
     }
   }
 }

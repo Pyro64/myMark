@@ -10,15 +10,19 @@
       <img class="icon" src="../assets/images/icon/avto.svg" alt="avto" />
     </div>
     <div class="wrapper">
-      <img
-        class="icon"
-        src="../assets/images/icon/favorite.svg"
-        alt="favorite"
-      />
-      <div class="number">5</div>
+      <n-badge :value="5" :max="15" color="#FF2149">
+        <img
+          class="icon"
+          src="../assets/images/icon/favorite.svg"
+          alt="favorite"
+        />
+      </n-badge>
+
     </div>
     <div class="wrapper">
-      <img class="icon" src="../assets/images/icon/order.svg" alt="order" />
+      <n-badge value="4" :max="15" color="#FF2149">
+        <img class="icon" src="../assets/images/icon/order.svg" alt="order" />
+      </n-badge>
     </div>
   </div>
 </template>
@@ -56,19 +60,4 @@
   position: relative;
 }
 
-.number {
-  @include fluid(width, 15px, 20px);
-  @include fluid(height, 15px, 20px);
-  @include fluid(right, -5px, -10px);
-  @include fluid(top, -5px, -10px);
-  position: absolute;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: $red;
-  color: #fff;
-  @include fluid(font-size, 10px, 12px);
-}
 </style>
