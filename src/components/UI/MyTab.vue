@@ -11,7 +11,7 @@
       <template v-for="r in reviews" :key="r.id">
         <review-card :review="r" />
       </template>
-      <n-button class="more">Показать больше отзывов</n-button>
+      <n-button   style="font-weight: 500" class="more">Показать больше отзывов</n-button>
     </n-tab-pane>
   </n-tabs>
 </template>
