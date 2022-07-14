@@ -1,5 +1,5 @@
 <template>
-  <router-link class="category" :to="{ name: 'categoryList', params: { id: `${item.id}` }}">
+  <router-link class="category" :to="{ name: 'categoryList', params: { id: `${item.id}`,name:`${item.text}` }}">
     <img class="category__img" :src="item.src">
     <div class="category__text">{{ item.text }}</div>
   </router-link>
