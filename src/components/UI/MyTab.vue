@@ -1,69 +1,71 @@
 <template>
-  <n-tabs type="line" animated justify-content="center" default-value="Отзывы"
-          size="large">
-    <n-tab-pane name="Описание" tab="Описание">
-      Wonderwall
-    </n-tab-pane>
-    <n-tab-pane name="Характеристики" tab="Характеристики">
-      Hey Jude
-    </n-tab-pane>
-    <n-tab-pane name="Отзывы" tab="Отзывы">
-      <template v-for="r in reviews" :key="r.id">
-        <review-card :review="r" />
-      </template>
-      <n-button   style="font-weight: 500" class="more">Показать больше отзывов</n-button>
-    </n-tab-pane>
-  </n-tabs>
+  <div class="tab">
+    <n-tabs type="line" animated justify-content="center" default-value="Характеристики"
+            size="large">
+      <n-tab-pane name="Описание" tab="Описание">
+        <div class="tab__text">
+          <p>Этикет-пистолет для нанесения на этикетки цифр, букв («Цена», «Дата», «Артикул») и символов (руб, DM, $,
+            Евро
+            и т.д.).
+          </p>
+          <p>Применение этикет-пистолета motex МХ 5500 несет определенные преимущества производствам, где осуществляется
+            маркировка продукции путем нанесения основных данных на продукт (например, сроки годности). Поверх этикеток
+            с
+            самоклеющейся основой с помощью этого устройства супермаркеты и магазины могут наносить соответствующую
+            информацию. Этикет-пистолет motex МХ 5500 оснащен специальным валиком красящего типа.
+            Эта деталь имеет сменную конструкцию. Валик снимается достаточно просто. Процедура замены имеет невысокую
+            стоимость.</p>
+        </div>
+      </n-tab-pane>
+      <n-tab-pane name="Характеристики" tab="Характеристики">
+        <template v-for="item in values" :key="item.id">
+          <my-feature :item="item" />
+        </template>
+      </n-tab-pane>
+      <n-tab-pane name="Отзывы" tab="Отзывы">
+        <template v-for="r in reviews" :key="r.id">
+          <review-card :review="r" />
+        </template>
+        <more-btn>
+          Показать больше отзывов
+        </more-btn>
+      </n-tab-pane>
+    </n-tabs>
+  </div>
 </template>
 
 <script setup>
 import ReviewCard from "../ReviewCard.vue";
-import reviewImg from "../../assets/images/avatar.png"
-import {reactive} from "vue";
 
-const reviews = [
-  {
-    id:1,
-    name:"Александр",
-    img: reviewImg,
-    date: '17 февраля 2022',
-    text:"  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque esse facere iusto non odit pariatur, placeat? Accusantium alias, amet, dicta dolorem ex exercitationem necessitatibus nihil, obcaecati quia rerum sequi temporibus.",
-    rate: 4,
-    like: 14,
-    dislike:2,
-  },
-  {
-    id:2,
-    name:"Маргорита",
-    img: reviewImg,
-    date: '16 февраля 2022',
-    text:"  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque esse facere iusto non odit pariatur, placeat? Accusantium alias, amet, dicta dolorem ex exercitationem necessitatibus nihil, obcaecati quia rerum sequi temporibus.",
-    rate: 3,
-    like: 4,
-    dislike:21,
-  },
-  {
-    id:3,
-    name:"Дмитрий",
-    img: reviewImg,
-    date: '15 февраля 2022',
-    text:"  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque esse facere iusto non odit pariatur, placeat? Accusantium alias, amet, dicta dolorem ex exercitationem necessitatibus nihil, obcaecati quia rerum sequi temporibus.",
-    rate: 5,
-    like: 18,
-    dislike:2,
-  },
-];
+import { useDetailCardStore } from "../../stores/detailCard";
+import { storeToRefs } from "pinia";
+import MyFeature from "./MyFeature.vue";
+import MoreBtn from "./MoreBtn.vue";
+
+const storeDetail = storeToRefs(useDetailCardStore());
+const { reviews, values } = storeDetail;
 </script>
 
 <style lang="scss" scoped>
- @import '../../assets/styles/mixins.scss';
- .more {
-   @include fluid(height, 40px, 60px);
-   @include fluid(font-size, 16px, 20px);
-   border-radius: 15px;
-   width: 100%;
-   color: $black;
-   font-weight: 600;
-   background: #EEEEEE;
- }
+@import '../../assets/styles/mixins.scss';
+
+.tab {
+  &__text {
+    p {
+      @include fluid(margin-bottom, 10px, 20px);
+      @include fluid(font-size, 14px, 18px);
+      color: $black;
+    }
+  }
+}
+
+.more {
+  @include fluid(height, 40px, 60px);
+  @include fluid(font-size, 16px, 20px);
+  border-radius: 15px;
+  width: 100%;
+  color: $black;
+  font-weight: 600;
+  background: #EEEEEE;
+}
 </style>

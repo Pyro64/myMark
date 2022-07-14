@@ -2,7 +2,8 @@
   <div class="productCatalog">
     <MyTitle title="Каталог товаров" />
     <div class="productCatalog__block">
-      <router-link to="/" v-for="c in catalogs" :key="c.id" class="productCatalog__item">
+      <router-link :to="{ name: 'categoryList', params: { id: `${c.id}` }}" v-for="c in catalogs" :key="c.id"
+                   class="productCatalog__item">
         <img class="productCatalog__img" :src="c.img" alt="catalog">
         <div class="productCatalog__text">{{ c.text }}</div>
       </router-link>

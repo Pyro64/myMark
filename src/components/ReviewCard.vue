@@ -91,8 +91,6 @@ const message = useMessage();
 const isLike = ref(false);
 const isDislike = ref(false);
 const isLoading = ref(false);
-const countLike = ref(1);
-const countDislike = ref(12);
 const setLike = () => {
   isLike.value = !isLike.value;
   isDislike.value = false;
@@ -122,6 +120,7 @@ const loading = () => {
     );
   }, 3000);
 };
+
 </script>
 
 <style lang="scss" scoped>

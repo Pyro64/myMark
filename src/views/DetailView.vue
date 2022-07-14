@@ -1,6 +1,6 @@
 <template>
   <my-breadcrumb :routes="routes.value" />
-  <product-detail :product="product.value" />
+  <product-detail :radio="radio" :product="product.value" />
   <info-banner
     title="Нашли дешевле?" text="Снизим цену специально для вас" to="/"
     :img="priceBannerImg" />
@@ -18,20 +18,24 @@
 
 <script setup>
 import { reactive, watchEffect } from "vue";
-import ProductDetail from "../components/Product/ProductDetail.vue";
-import { useProductsCardStore } from "../stores/productCard";
 import { useRoute } from "vue-router";
+import { storeToRefs } from "pinia";
+import { useProductsCardStore } from "../stores/productCard";
+import { useDetailCardStore } from "../stores/detailCard";
+import ProductDetail from "../components/Product/ProductDetail.vue";
 import MyBreadcrumb from "../components/UI/MyBreadcrumb.vue";
 import ProductCard from "../components/Product/ProductCard.vue";
 import SliderCard from "../components/SliderCard.vue";
 import supportBannerImg from "../assets/images/support-banner.png";
 import priceBannerImg from "../assets/images/support-banner-2.png";
 import InfoBanner from "../components/InfoBanner.vue";
-import { storeToRefs } from "pinia";
 
-const store = storeToRefs(useProductsCardStore());
-const { products } = store;
+
+const storeCard = storeToRefs(useProductsCardStore());
+const storeRadio = storeToRefs(useDetailCardStore());
+const { products } = storeCard;
 const { getProductById, setDetailProduct } = useProductsCardStore();
+const { radio } = storeRadio;
 const route = useRoute();
 const product = reactive({});
 const routes = reactive([]);

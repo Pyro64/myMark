@@ -35,6 +35,5 @@ const storeBanners = storeToRefs(useHomeBannersStore());
 const { banners } = storeBanners;
 const { categories } = storeCategory;
 const { products } = storeProducts;
-
 </script>
 
