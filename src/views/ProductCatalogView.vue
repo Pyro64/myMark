@@ -1,94 +1,41 @@
 <template>
-  <catalog-header :productCount="products.length" />
-  <div class="list">
+  <catalog-header :productCount="products.length"/>
+  <div class="wrapper">
     <div class="sidebar">
       <form action="">
+        сортировка
       </form>
     </div>
-    <div class="list__content">
-      <div class="list__block">
-        <div v-motion-slide-bottom class="list__item" v-for="product in sliceProducts" :key="product.id">
-          <product-card :product="product" />
-        </div>
-        <more-btn v-if="page !== Math.ceil(products.length / pageSize)" @click="setMoreProducts">
-          Показать еще
-        </more-btn>
-        <div class="list__pagination">
-          <n-pagination
-            v-model:page="page"
-            :page-size="pageSize"
-            :page-count="Math.ceil(products.length / pageSize)"
-          />
-        </div>
-      </div>
-    </div>
+    <product-list/>
   </div>
+  <slider-card :slides="products" v-slot:default="slotProps" title="Популярные товары" link="/products" :isLink="true"
+               prev="product-prev" next="product-next" :slidesView="6">
+    <product-card :product="slotProps.slide" />
+  </slider-card>
+  <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
+работает для вас без выходных" to="/" :img="supportBannerImg" />
 </template>
 
 <script setup>
 import CatalogHeader from "../components/CatalogHeader.vue";
-import { storeToRefs } from "pinia";
-import { useProductsCardStore } from "../stores/productCard";
+import ProductList from "../components/Product/ProductList.vue";
+import {storeToRefs} from "pinia";
+import {useProductsCardStore} from "../stores/productCard";
+import InfoBanner from "../components/InfoBanner.vue";
 import ProductCard from "../components/Product/ProductCard.vue";
-import MoreBtn from "../components/UI/MoreBtn.vue";
+import SliderCard from "../components/SliderCard.vue";
+import supportBannerImg from "../assets/images/support-banner.png";
 
 const storeProducts = storeToRefs(useProductsCardStore());
-const { setMoreProducts } = useProductsCardStore();
-const { products, sliceProducts, page, pageSize, step } = storeProducts;
+const {products} = storeProducts;
 </script>
 <style lang="scss" scoped>
 @import '../assets/styles/mixins.scss';
 
-.list-item {
-  display: inline-block;
-  margin-right: 10px;
-}
 
-.list-enter-active,
-.list-leave-active {
-  transition: all 1s ease;
-}
-
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.list {
+.wrapper {
   display: flex;
   justify-content: space-between;
   @include container;
-
-  &__content {
-    @include fluid(margin-bottom, 25px, 50px);
-    width: 83%;
-  }
-
-  &__block {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__item {
-    @include fluid(width, 180px, 240px);
-    @include fluid(margin-right, 20px, 40px);
-    @include fluid(margin-bottom, 10px, 20px);
-
-    &:nth-child(5n) {
-      margin-right: 0;
-    }
-  }
-
-  &__pagination {
-    @include fluid(margin-top, 10px, 25px);
-    @include fluid(padding-top, 5px, 10px);
-    @include fluid(padding-bottom, 5px, 10px);
-    width: 100%;
-    background: #FFFFFF;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-  }
 }
 </style>
