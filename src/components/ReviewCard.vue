@@ -231,6 +231,10 @@ const loading = () => {
     }
 
     &--dislike {
+      &:hover {
+        background: #F5F5F5;
+      }
+
       &:focus {
         background: #F5F5F5;
       }
