@@ -1,10 +1,15 @@
 <template>
-  <catalog-header :productCount="products.length" />
+  <catalog-header :title="text" :productCount="products.length" />
   <div class="wrapper">
     <div class="sidebar">
       <form action="">сортировка</form>
     </div>
-    <product-list />
+    <product-list
+      :products="products"
+      :sliceCards="sliceProducts"
+      :pageSize="pageSize"
+      :step="step"
+    />
   </div>
   <slider-card
     :slides="products"
@@ -29,17 +34,20 @@
 <script setup>
 import CatalogHeader from "../components/CatalogHeader.vue";
 import ProductList from "../components/Product/ProductList.vue";
-import { storeToRefs } from "pinia";
-import { useProductsCardStore } from "../stores/productCard";
 import InfoBanner from "../components/InfoBanner.vue";
 import ProductCard from "../components/Product/ProductCard.vue";
-
 import supportBannerImg from "../assets/images/support-banner.png";
 import SliderCard from "../components/SliderCard.vue";
 import InfoText from "../components/InfoText.vue";
 
+import { storeToRefs } from "pinia";
+import { useRoute } from "vue-router";
+import { useProductsCardStore } from "../stores/productCard";
+
 const storeProducts = storeToRefs(useProductsCardStore());
-const { products } = storeProducts;
+const { products, sliceProducts, page, pageSize, step } = storeProducts;
+const route = useRoute();
+const text = route.params.name;
 </script>
 <style lang="scss" scoped>
 @import "../assets/styles/mixins.scss";

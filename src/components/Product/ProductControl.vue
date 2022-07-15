@@ -3,7 +3,6 @@
     <div class="productControl__block">
       <my-counter :product="product" />
       <div class="flex items-center">
-        {{ isFavorite }}
         <div class="productControl__sum">Итоговая стоимость:</div>
         <div class="productControl__price">{{ product.totalPrice }} ₽</div>
       </div>
@@ -13,7 +12,7 @@
       <div class="productControl__item">
         <n-button
           :loading="isLoadingFavorite.value"
-          :disabled="isLoadingFavorite.value"
+          :disabled="isLoadingFavorite.value || isFavorite"
           @click="addFavorite('success')"
           class="productControl__btn"
           >В избранное

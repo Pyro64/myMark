@@ -751,6 +751,11 @@ export const useProductsCardStore = defineStore({
         (state.page - 1) * state.pageSize,
         state.page * state.pageSize
       ),
+    sliceFavorite: (state) =>
+      state.favorites.slice(
+        (state.page - 1) * state.pageSize,
+        state.page * state.pageSize
+      ),
   },
   actions: {
     totalPriceProduct(card) {

@@ -4,7 +4,7 @@
       <div
         v-motion-slide-bottom
         class="list__item"
-        v-for="product in sliceProducts"
+        v-for="product in sliceCards"
         :key="product.id"
       >
         <product-card :product="product" />
@@ -17,6 +17,7 @@
       </more-btn>
       <div v-if="products.length > pageSize" class="list__pagination">
         <n-pagination
+          :default-page="1"
           v-model:page="page"
           :page-size="pageSize"
           :page-count="Math.ceil(products.length / pageSize)"
@@ -30,10 +31,17 @@
 import { storeToRefs } from "pinia";
 import { useProductsCardStore } from "../../stores/productCard";
 import MoreBtn from "../UI/MoreBtn.vue";
-import ProductCard from "../Product/ProductCard.vue";
+import ProductCard from "./ProductCard.vue";
+
+const props = defineProps({
+  products: Array,
+  sliceCards: Array,
+  pageSize: Number,
+  step: Number,
+});
 const storeProducts = storeToRefs(useProductsCardStore());
+const { page } = storeProducts;
 const { setMoreProducts } = useProductsCardStore();
-const { products, sliceProducts, page, pageSize, step } = storeProducts;
 </script>
 
 <style lang="scss" scoped>

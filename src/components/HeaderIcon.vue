@@ -9,7 +9,7 @@
     <div class="wrapper">
       <img class="icon" src="../assets/images/icon/avto.svg" alt="avto" />
     </div>
-    <div class="wrapper">
+    <router-link to="/favorite" class="wrapper">
       <n-badge :value="favorites.length" :max="15" color="#FF2149">
         <img
           class="icon"
@@ -17,7 +17,7 @@
           alt="favorite"
         />
       </n-badge>
-    </div>
+    </router-link>
     <div class="wrapper">
       <n-badge value="4" :max="15" color="#FF2149">
         <img class="icon" src="../assets/images/icon/order.svg" alt="order" />

@@ -1,21 +1,21 @@
 <template>
   <div class="listHeader">
-    <div class="listHeader__title">{{ text }}</div>
+    <div class="listHeader__title">{{ title }}</div>
     <div class="listHeader__text">Найдено товаров: {{ productCount }} шт.</div>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
-
 const props = defineProps({
   productCount: {
     type: Number,
     required: true,
   },
+  title: {
+    type: String,
+    required: true,
+  },
 });
-const route = useRoute();
-const text = route.params.name;
 </script>
 
 <style lang="scss" scoped>
