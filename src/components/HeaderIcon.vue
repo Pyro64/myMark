@@ -10,14 +10,13 @@
       <img class="icon" src="../assets/images/icon/avto.svg" alt="avto" />
     </div>
     <div class="wrapper">
-      <n-badge :value="5" :max="15" color="#FF2149">
+      <n-badge :value="favorites.length" :max="15" color="#FF2149">
         <img
           class="icon"
           src="../assets/images/icon/favorite.svg"
           alt="favorite"
         />
       </n-badge>
-
     </div>
     <div class="wrapper">
       <n-badge value="4" :max="15" color="#FF2149">
@@ -28,6 +27,10 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useProductsCardStore } from "../stores/productCard";
+const storeProducts = storeToRefs(useProductsCardStore());
+const { favorites } = storeProducts;
 </script>
 
 <style lang="scss" scoped>
@@ -48,7 +51,8 @@
     }
 
     &:hover {
-      filter: invert(30%) sepia(43%) saturate(1000%) hue-rotate(335deg) brightness(99%) contrast(106%);
+      filter: invert(30%) sepia(43%) saturate(1000%) hue-rotate(335deg)
+        brightness(99%) contrast(106%);
     }
   }
 }
@@ -59,5 +63,4 @@
   @include fluid(margin-right, 20px, 40px);
   position: relative;
 }
-
 </style>

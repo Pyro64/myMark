@@ -1,28 +1,38 @@
 <template>
-  <router-link class="category" :to="{ name: 'categoryList', params: { id: `${item.id}`,name:`${item.text}` }}">
-    <img class="category__img" :src="item.src">
+  <router-link
+    class="category"
+    :to="{
+      name: 'categoryList',
+      params: {
+        id: `${item.id}`,
+        name: `${item.text}`,
+      },
+    }"
+  >
+    <img class="category__img" :src="item.src" />
     <div class="category__text">{{ item.text }}</div>
   </router-link>
 </template>
 
 <script setup>
 const props = defineProps({
-  item: Object
+  item: Object,
 });
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/mixins';
+@import "../../assets/styles/mixins";
 
 .category {
   @include fluid(padding-left, 25px, 55px);
   @include fluid(padding-right, 25px, 55px);
   @include fluid(padding-top, 15px, 30px);
   @include fluid(padding-bottom, 15px, 30px);
+  @include fluid(min-height, 280px, 380px);
   display: block;
   cursor: pointer;
   transition: $trn;
-  background: #FFFFFF;
+  background: #ffffff;
 
   &__img {
     width: 100%;
@@ -32,7 +42,7 @@ const props = defineProps({
   }
 
   &__text {
-    @include fluid(font-size, 14px, 18px);
+    @include fluid(font-size, 14px, 16px);
     font-weight: 600;
     transition: $trn;
     color: $black;
@@ -46,8 +56,6 @@ const props = defineProps({
         color: $red;
       }
     }
-
   }
 }
-
 </style>

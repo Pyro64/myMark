@@ -1,18 +1,38 @@
 <template>
   <slider-banner :banners="banners" />
   <home-link />
-  <slider-card :slides="products" v-slot:default="slotProps" title="Популярные товары" link="/products" :isLink="true"
-               prev="product-prev" next="product-next" :slidesView="6">
+  <slider-card
+    :slides="products"
+    v-slot:default="slotProps"
+    title="Популярные товары"
+    link="/products"
+    :isLink="true"
+    prev="product-prev"
+    next="product-next"
+    :slidesView="6"
+  >
     <product-card :product="slotProps.slide" />
   </slider-card>
   <advertising-images />
-  <slider-card :slides="categories" v-slot:default="slotProps" title="Популярные категории" link="/category"
-               :isLink="true"
-               prev="category-prev" next="category-next" :slidesView="4">
+  <slider-card
+    :slides="categories"
+    v-slot:default="slotProps"
+    title="Популярные категории"
+    link="/category"
+    :isLink="true"
+    prev="category-prev"
+    next="category-next"
+    :slidesView="4"
+  >
     <category-card :item="slotProps.slide" />
   </slider-card>
-  <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
-работает для вас без выходных" to="/" :img="supportBannerImg" />
+  <info-banner
+    title="Мы всегда рядом"
+    text="Круглосуточная поддержка
+работает для вас без выходных"
+    to="/"
+    :img="supportBannerImg"
+  />
 </template>
 
 <script setup>
@@ -36,4 +56,3 @@ const { banners } = storeBanners;
 const { categories } = storeCategory;
 const { products } = storeProducts;
 </script>
-

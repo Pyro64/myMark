@@ -1,17 +1,32 @@
 <template>
   <div class="detail">
-    <div class="flex  justify-between items-start">
+    <div class="flex justify-between items-start">
       <div class="detail__sticky">
         <n-image-group>
           <div class="detail__images">
             <div class="detail__image">
-              <n-image class="w-full h-full" object-fit="contain" :src="detail" alt="img" />
+              <n-image
+                class="w-full h-full"
+                object-fit="contain"
+                :src="detail"
+                alt="img"
+              />
             </div>
             <div class="detail__image">
-              <n-image class="w-full h-full" object-fit="contain" :src="pistol" alt="img" />
+              <n-image
+                class="w-full h-full"
+                object-fit="contain"
+                :src="pistol"
+                alt="img"
+              />
             </div>
             <div class="detail__image">
-              <n-image class="w-full h-full" object-fit="contain" :src="product.src" alt="img" />
+              <n-image
+                class="w-full h-full"
+                object-fit="contain"
+                :src="product.src"
+                alt="img"
+              />
             </div>
           </div>
         </n-image-group>
@@ -21,7 +36,10 @@
           <div class="flex items-center justify-between mb-6">
             <div class="detail__card-manufacturer">MOTEX</div>
             <div class="flex items-center">
-              <img src="../../assets/images/icon/qr.svg" class="detail__code-svg">
+              <img
+                src="../../assets/images/icon/qr.svg"
+                class="detail__code-svg"
+              />
               <div class="detail__code-text">Код товара: 268661337</div>
             </div>
           </div>
@@ -29,7 +47,9 @@
           <div class="detail__item flex justify-between items-center">
             <div class="flex items-center">
               <div class="detail__price">{{ product.price }} ₽</div>
-              <div v-show="product.sales" class="detail__priceOld">{{ product.sales }} ₽</div>
+              <div v-show="product.sales" class="detail__priceOld">
+                {{ product.sales }} ₽
+              </div>
             </div>
             <div class="flex items-center">
               <my-star :red="true" />
@@ -68,18 +88,17 @@ const props = defineProps({
     price: Number,
     totalPrice: Number,
     countProduct: Number,
-    sales: Number
+    sales: Number,
   },
   radio: {
     id: String,
-    color: String
-  }
+    color: String,
+  },
 });
-
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/mixins';
+@import "../../assets/styles/mixins";
 
 .detail {
   @include container;
@@ -93,13 +112,11 @@ const props = defineProps({
     width: 49%;
     position: sticky;
     @include fluid(top, 10px, 20px);
-
   }
 
   &__images {
     display: flex;
     flex-wrap: wrap;
-
   }
 
   &__subtitle {
@@ -115,14 +132,12 @@ const props = defineProps({
   &__item {
     @include fluid(padding-top, 15px, 25px);
     @include fluid(padding-bottom, 15px, 25px);
-    border-bottom: 1px solid #DDDDDD;
-
+    border-bottom: 1px solid #dddddd;
   }
 
   &__control {
     @include fluid(margin-top, 2px, 40px);
     @include fluid(margin-bottom, 50px, 100px);
-
   }
 
   &__price {
@@ -169,9 +184,10 @@ const props = defineProps({
   }
 
   &__image {
-    @include fluid(margin-bottom, 20px, 40px);
+    @include fluid(margin-top, 20px, 40px);
     @include fluid(padding, 10px, 20px);
     @include fluid(height, 160px, 240px);
+    border-radius: 10px;
     margin-right: 5%;
     background: #fff;
     width: 30%;
@@ -180,6 +196,7 @@ const props = defineProps({
     &:first-child {
       @include fluid(height, 600px, 800px);
       @include fluid(padding, 20px, 40px);
+      margin-top: 0;
       margin-right: 0;
       width: 100%;
     }

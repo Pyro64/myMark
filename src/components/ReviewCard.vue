@@ -2,7 +2,11 @@
   <div class="review">
     <div class="review__block">
       <div class="review__item">
-        <n-image class="review__avatar" :src="review.img" :show-toolbar="false" />
+        <n-image
+          class="review__avatar"
+          :src="review.img"
+          :show-toolbar="false"
+        />
         <div class="review__name">{{ review.name }}</div>
       </div>
       <div class="review__item">
@@ -22,10 +26,11 @@
         <n-button
           :bordered="false"
           type="success"
-          :class="{'like':isLike == true}"
+          :class="{ like: isLike == true }"
           :disabled="isLoading"
           @click="setLike"
-          class="review__btn review__btn--like">
+          class="review__btn review__btn--like"
+        >
           <template #icon>
             <n-icon>
               <my-like />
@@ -35,7 +40,7 @@
         </n-button>
         <n-button
           :bordered="false"
-          :class="{'dislike':isDislike == true}"
+          :class="{ dislike: isDislike == true }"
           :disabled="isLoading"
           @click="setDislike"
           class="review__btn review__btn--dislike"
@@ -84,8 +89,8 @@ const props = defineProps({
     text: String,
     rate: Number,
     like: Number,
-    dislike: Number
-  }
+    dislike: Number,
+  },
 });
 const message = useMessage();
 const isLike = ref(false);
@@ -110,29 +115,22 @@ const setDislike = () => {
 };
 const loading = () => {
   isLoading.value = true;
-  message.loading(
-    "Ожидание"
-  );
+  message.loading("Ожидание");
   setTimeout(() => {
     isLoading.value = false;
-    message.success(
-      "Пост отправлен на проверку модератору"
-    );
+    message.success("Пост отправлен на проверку модератору");
   }, 3000);
 };
-
 </script>
 
 <style lang="scss" scoped>
-
-@import '../assets/styles/mixins.scss';
+@import "../assets/styles/mixins.scss";
 
 .review {
   @include fluid(padding, 15px, 30px);
-  @include fluid(margin-bottom, 10px, 20px);
-  background: #FFFFFF;
+  @include fluid(margin-top, 10px, 20px);
+  background: #ffffff;
   border-radius: 10px;
-
   &__block {
     display: flex;
     align-items: center;
@@ -161,7 +159,7 @@ const loading = () => {
 
   &__content {
     @include fluid(margin-bottom, 10px, 20px);
-    border-bottom: 1px solid #EEEEEE;;
+    border-bottom: 1px solid #eeeeee;
 
     p {
       @include fluid(font-size, 12px, 14px);
@@ -177,7 +175,7 @@ const loading = () => {
     @include fluid(padding-right, 10px, 15px);
     width: fit-content;
     display: flex;
-    background: #F5F5F5;
+    background: #f5f5f5;
     border-radius: 999px;
 
     &-text {
@@ -204,7 +202,7 @@ const loading = () => {
     @include fluid(padding-bottom, 4px, 8px);
     @include fluid(padding-left, 10px, 15px);
     @include fluid(padding-right, 10px, 15px);
-    background: #F5F5F5;
+    background: #f5f5f5;
     border-radius: 999px;
     border: none;
     outline: none;
@@ -219,23 +217,23 @@ const loading = () => {
       color: $black;
 
       &:hover {
-        background: #F5F5F5;
+        background: #f5f5f5;
         color: $green;
       }
 
       &:focus {
-        background: #F5F5F5;
+        background: #f5f5f5;
         color: $green;
       }
     }
 
     &--dislike {
       &:hover {
-        background: #F5F5F5;
+        background: #f5f5f5;
       }
 
       &:focus {
-        background: #F5F5F5;
+        background: #f5f5f5;
       }
     }
   }

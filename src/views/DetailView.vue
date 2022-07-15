@@ -2,18 +2,38 @@
   <my-breadcrumb :routes="routes.value" />
   <product-detail :radio="radio" :product="product.value" />
   <info-banner
-    title="Нашли дешевле?" text="Снизим цену специально для вас" to="/"
-    :img="priceBannerImg" />
-  <slider-card :slides="products" v-slot:default="slotProps" title="Сопутствующие товары"
-               prev="concomitant-prev" next="concomitant-next" :slidesView="6">
+    title="Нашли дешевле?"
+    text="Снизим цену специально для вас"
+    to="/"
+    :img="priceBannerImg"
+  />
+  <slider-card
+    :slides="products"
+    v-slot:default="slotProps"
+    title="Сопутствующие товары"
+    prev="concomitant-prev"
+    next="concomitant-next"
+    :slidesView="6"
+  >
     <product-card :product="slotProps.slide" />
   </slider-card>
-  <slider-card :slides="products" v-slot:default="slotProps" title="Вы просматривали"
-               prev="watch-prev" next="watch-next" :slidesView="6">
+  <slider-card
+    :slides="products"
+    v-slot:default="slotProps"
+    title="Вы просматривали"
+    prev="watch-prev"
+    next="watch-next"
+    :slidesView="6"
+  >
     <product-card :product="slotProps.slide" />
   </slider-card>
-  <info-banner title="Мы всегда рядом" text="Круглосуточная поддержка
-работает для вас без выходных" to="/" :img="supportBannerImg" />
+  <info-banner
+    title="Мы всегда рядом"
+    text="Круглосуточная поддержка
+работает для вас без выходных"
+    to="/"
+    :img="supportBannerImg"
+  />
 </template>
 
 <script setup>
@@ -30,7 +50,6 @@ import supportBannerImg from "../assets/images/support-banner.png";
 import priceBannerImg from "../assets/images/support-banner-2.png";
 import InfoBanner from "../components/InfoBanner.vue";
 
-
 const storeCard = storeToRefs(useProductsCardStore());
 const storeRadio = storeToRefs(useDetailCardStore());
 const { products } = storeCard;
@@ -46,26 +65,21 @@ watchEffect(() => {
       {
         id: 1,
         to: "/",
-        text: "Главная"
+        text: "Главная",
       },
       {
         id: 2,
         to: "/category",
-        text: "Каталог товаров"
+        text: "Каталог товаров",
       },
       {
         id: 3,
         to: `/products/${product.value.id}`,
-        text: product.value.name
-      }
+        text: product.value.name,
+      },
     ];
   }
-
 });
-
-
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

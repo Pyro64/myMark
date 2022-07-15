@@ -9,11 +9,9 @@
   <slider-card
     :slides="products"
     v-slot:default="slotProps"
-    title="Популярные товары"
-    link="/products"
-    :isLink="true"
-    prev="product-prev"
-    next="product-next"
+    title="Вы просматривали"
+    prev="watch-prev"
+    next="watch-next"
     :slidesView="6"
   >
     <product-card :product="slotProps.slide" />
@@ -25,6 +23,7 @@
     to="/"
     :img="supportBannerImg"
   />
+  <info-text />
 </template>
 
 <script setup>
@@ -37,6 +36,7 @@ import ProductCard from "../components/Product/ProductCard.vue";
 
 import supportBannerImg from "../assets/images/support-banner.png";
 import SliderCard from "../components/SliderCard.vue";
+import InfoText from "../components/InfoText.vue";
 
 const storeProducts = storeToRefs(useProductsCardStore());
 const { products } = storeProducts;

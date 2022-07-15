@@ -1,7 +1,7 @@
 <template>
   <n-config-provider :theme-overrides="themeOverrides">
     <n-message-provider>
-      <n-notification-provider>
+      <n-notification-provider placement="top-left">
         <n-dialog-provider>
           <div class="main">
             <my-header />
@@ -23,10 +23,10 @@ import SupportBanner from "./components/InfoBanner.vue";
 import MyFooter from "./components/MyFooter.vue";
 
 const themeOverrides = {
-  "common": {
-    "primaryColor": "#FF2149FF",
-    "primaryColorHover": "#F8395CFF",
-    "primaryColorPressed": "#BE1937FF"
-  }
+  common: {
+    primaryColor: "#FF2149FF",
+    primaryColorHover: "#F8395CFF",
+    primaryColorPressed: "#BE1937FF",
+  },
 };
 </script>

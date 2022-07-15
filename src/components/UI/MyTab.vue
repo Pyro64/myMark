@@ -1,20 +1,29 @@
 <template>
   <div class="tab">
-    <n-tabs type="line" animated justify-content="center" default-value="Характеристики"
-            size="large">
+    <n-tabs
+      type="line"
+      animated
+      justify-content="center"
+      default-value="Отзывы"
+      size="large"
+    >
       <n-tab-pane name="Описание" tab="Описание">
         <div class="tab__text">
-          <p>Этикет-пистолет для нанесения на этикетки цифр, букв («Цена», «Дата», «Артикул») и символов (руб, DM, $,
-            Евро
-            и т.д.).
+          <p>
+            Этикет-пистолет для нанесения на этикетки цифр, букв («Цена»,
+            «Дата», «Артикул») и символов (руб, DM, $, Евро и т.д.).
           </p>
-          <p>Применение этикет-пистолета motex МХ 5500 несет определенные преимущества производствам, где осуществляется
-            маркировка продукции путем нанесения основных данных на продукт (например, сроки годности). Поверх этикеток
-            с
-            самоклеющейся основой с помощью этого устройства супермаркеты и магазины могут наносить соответствующую
-            информацию. Этикет-пистолет motex МХ 5500 оснащен специальным валиком красящего типа.
-            Эта деталь имеет сменную конструкцию. Валик снимается достаточно просто. Процедура замены имеет невысокую
-            стоимость.</p>
+          <p>
+            Применение этикет-пистолета motex МХ 5500 несет определенные
+            преимущества производствам, где осуществляется маркировка продукции
+            путем нанесения основных данных на продукт (например, сроки
+            годности). Поверх этикеток с самоклеющейся основой с помощью этого
+            устройства супермаркеты и магазины могут наносить соответствующую
+            информацию. Этикет-пистолет motex МХ 5500 оснащен специальным
+            валиком красящего типа. Эта деталь имеет сменную конструкцию. Валик
+            снимается достаточно просто. Процедура замены имеет невысокую
+            стоимость.
+          </p>
         </div>
       </n-tab-pane>
       <n-tab-pane name="Характеристики" tab="Характеристики">
@@ -23,10 +32,10 @@
         </template>
       </n-tab-pane>
       <n-tab-pane name="Отзывы" tab="Отзывы">
-        <template v-for="r in reviews" :key="r.id">
-          <review-card :review="r" />
+        <template v-for="r in sliceReviews" :key="r.id">
+          <review-card v-motion-slide-bottom :review="r" />
         </template>
-        <more-btn>
+        <more-btn v-if="reviews.length > pageSize" @click="setMoreReviews">
           Показать больше отзывов
         </more-btn>
       </n-tab-pane>
@@ -43,11 +52,12 @@ import MyFeature from "./MyFeature.vue";
 import MoreBtn from "./MoreBtn.vue";
 
 const storeDetail = storeToRefs(useDetailCardStore());
-const { reviews, values } = storeDetail;
+const { reviews, values, sliceReviews, pageSize } = storeDetail;
+const { setMoreReviews } = useDetailCardStore();
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/mixins.scss';
+@import "../../assets/styles/mixins.scss";
 
 .tab {
   &__text {
@@ -66,6 +76,6 @@ const { reviews, values } = storeDetail;
   width: 100%;
   color: $black;
   font-weight: 600;
-  background: #EEEEEE;
+  background: #eeeeee;
 }
 </style>
