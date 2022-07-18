@@ -17,7 +17,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 2,
@@ -26,7 +26,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 3,
@@ -35,7 +35,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 4,
@@ -44,7 +44,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 5,
@@ -53,7 +53,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 6,
@@ -62,7 +62,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 7,
@@ -71,7 +71,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 8,
@@ -80,7 +80,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 9,
@@ -89,7 +89,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 10,
@@ -98,7 +98,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 11,
@@ -107,7 +107,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 12,
@@ -116,7 +116,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 13,
@@ -125,7 +125,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 14,
@@ -134,7 +134,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 15,
@@ -143,7 +143,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 16,
@@ -152,7 +152,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 17,
@@ -161,7 +161,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 18,
@@ -170,7 +170,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 19,
@@ -179,7 +179,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 20,
@@ -188,7 +188,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 21,
@@ -197,7 +197,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 22,
@@ -206,7 +206,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 23,
@@ -215,7 +215,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 24,
@@ -224,7 +224,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 25,
@@ -233,7 +233,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 26,
@@ -242,7 +242,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 27,
@@ -251,7 +251,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 28,
@@ -260,7 +260,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 29,
@@ -269,7 +269,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 30,
@@ -278,7 +278,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 31,
@@ -287,7 +287,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 32,
@@ -296,7 +296,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 33,
@@ -305,7 +305,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 34,
@@ -314,7 +314,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 35,
@@ -323,7 +323,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 36,
@@ -332,7 +332,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 37,
@@ -341,7 +341,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 38,
@@ -350,7 +350,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 39,
@@ -359,7 +359,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 40,
@@ -368,7 +368,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 41,
@@ -377,7 +377,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 42,
@@ -386,7 +386,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 43,
@@ -395,7 +395,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 44,
@@ -404,7 +404,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 45,
@@ -413,7 +413,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 46,
@@ -422,7 +422,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 47,
@@ -431,7 +431,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 48,
@@ -440,7 +440,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 49,
@@ -449,7 +449,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 50,
@@ -458,7 +458,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 51,
@@ -467,7 +467,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 52,
@@ -476,7 +476,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 53,
@@ -485,7 +485,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 54,
@@ -494,7 +494,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 55,
@@ -503,7 +503,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 57,
@@ -512,7 +512,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 58,
@@ -521,7 +521,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 59,
@@ -530,7 +530,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 60,
@@ -539,7 +539,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 61,
@@ -548,7 +548,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 62,
@@ -557,7 +557,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 63,
@@ -566,7 +566,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 64,
@@ -575,7 +575,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 65,
@@ -584,7 +584,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 66,
@@ -593,7 +593,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 67,
@@ -602,7 +602,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 68,
@@ -611,7 +611,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 69,
@@ -620,7 +620,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 70,
@@ -629,7 +629,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 700,
@@ -638,7 +638,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 71,
@@ -647,7 +647,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 72,
@@ -656,7 +656,7 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
+        sales: 456,
       },
       {
         id: 73,
@@ -665,7 +665,7 @@ export const useProductsCardStore = defineStore({
         price: 100,
         totalPrice: 100,
         countProduct: 1,
-        sales: 1_899
+        sales: 1_899,
       },
       {
         id: 74,
@@ -674,7 +674,7 @@ export const useProductsCardStore = defineStore({
         price: 459,
         totalPrice: 459,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 75,
@@ -683,7 +683,7 @@ export const useProductsCardStore = defineStore({
         price: 4000,
         totalPrice: 4000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 76,
@@ -692,7 +692,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: 2500
+        sales: 2500,
       },
       {
         id: 77,
@@ -701,7 +701,7 @@ export const useProductsCardStore = defineStore({
         price: 1500,
         totalPrice: 1500,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 78,
@@ -710,7 +710,7 @@ export const useProductsCardStore = defineStore({
         price: 150,
         totalPrice: 150,
         countProduct: 1,
-        sales: 2000
+        sales: 2000,
       },
       {
         id: 79,
@@ -719,7 +719,7 @@ export const useProductsCardStore = defineStore({
         price: 2000,
         totalPrice: 2000,
         countProduct: 1,
-        sales: null
+        sales: null,
       },
       {
         id: 80,
@@ -728,15 +728,15 @@ export const useProductsCardStore = defineStore({
         price: 248,
         totalPrice: 248,
         countProduct: 1,
-        sales: 456
-      }
+        sales: 456,
+      },
     ],
     favorites: [],
     favoriteIds: [],
     pageSize: 20,
     page: 1,
     step: 20,
-    sizePicker: [20, 40, 60]
+    // sizePicker: [20, 30, 40],
   }),
   getters: {
     getProductById: (state) => {
@@ -747,16 +747,20 @@ export const useProductsCardStore = defineStore({
       return (productId) =>
         state.favoriteIds.indexOf(productId) == -1 ? false : true;
     },
-    sliceProducts: (state) =>
-      state.products.slice(
-        (state.page - 1) * state.pageSize,
-        state.page * state.pageSize
-      ),
+    sliceProducts: (state) => {
+      return (productId) => {
+        console.log(productId);
+        return state.products.slice(
+          (state.page - 1) * state.pageSize,
+          state.page * state.pageSize
+        );
+      };
+    },
     sliceFavorite: (state) =>
       state.favorites.slice(
         (state.page - 1) * state.pageSize,
         state.page * state.pageSize
-      )
+      ),
   },
   actions: {
     totalPriceProduct(card) {
@@ -778,7 +782,9 @@ export const useProductsCardStore = defineStore({
       card.totalPrice = card.totalPrice - card.price;
     },
     setMoreProducts() {
+      // this.products.sort(() => Math.random() - 0.5);
+      // this.pageSize = this.pageSize + this.step;
       this.page++;
-    }
-  }
+    },
+  },
 });

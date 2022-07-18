@@ -1,18 +1,20 @@
 <template>
   <router-link :to="{ name: 'detail', params: { id: `${product.id}` } }">
     <div class="card">
+      {{ product.id }}
       <img class="card__img" :src="product.src" alt="card" />
       <div class="card__block">
         <div class="card__name">{{ product.name }}</div>
         <div class="card__item">
           <div class="card__price">{{ product.price }} ₽</div>
-          <div v-if="product.sales" class="card__sales">
+          <div v-if="product.sales" class="card__sales list-complete-item">
             {{ product.sales }} ₽
           </div>
         </div>
       </div>
       <n-button class="card__button" @click.prevent.stop="openModal"
-        >Добавить</n-button
+      >Добавить
+      </n-button
       >
       <n-modal
         v-model:show="showModal"
@@ -41,6 +43,7 @@ import { ref, watchEffect } from "vue";
 import ProductControl from "./ProductControl.vue";
 import { useProductsCardStore } from "../../stores/productCard";
 import { storeToRefs } from "pinia";
+
 const props = defineProps({
   product: {
     id: Number,
@@ -49,8 +52,8 @@ const props = defineProps({
     price: Number,
     totalPrice: Number,
     countProduct: Number,
-    sales: Number,
-  },
+    sales: Number
+  }
 });
 const { checkFavorites, products } = useProductsCardStore();
 let isFavorite = ref(false);

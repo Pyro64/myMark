@@ -1,13 +1,15 @@
 <template>
   <div class="list">
     <div class="list__block">
-      <div
-        class="list__item"
-        v-for="product in sliceCards"
-        :key="product.id"
-      >
-        <product-card :product="product" />
-      </div>
+      <transition-group name="list-complete">
+        <div
+          class="list__item list-complete-item"
+          v-for="product in sliceCards(false)"
+          :key="product.id"
+        >
+          <product-card :product="product" />
+        </div>
+      </transition-group>
       <more-btn
         v-if="page !== Math.ceil(products.length / pageSize)"
         @click="setMoreProducts"
@@ -16,7 +18,6 @@
       </more-btn>
       <div v-if="products.length > pageSize" class="list__pagination">
         <n-pagination
-          show-size-picker
           :default-page="1"
           v-model:page="page"
           v-model:page-size="pageSize"
@@ -38,7 +39,7 @@ const props = defineProps({
   products: Array,
   sliceCards: Array,
   step: Number,
-  sizePicker: Array
+  sizePicker: Array,
 });
 const storeProducts = storeToRefs(useProductsCardStore());
 const { page, pageSize } = storeProducts;
@@ -47,6 +48,22 @@ const { setMoreProducts } = useProductsCardStore();
 
 <style lang="scss" scoped>
 @import "../../assets/styles/mixins.scss";
+
+.list-complete-item {
+  transition: all 0.4s ease-in-out;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-complete-enter-from,
+.list-complete-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.list-complete-leave-active {
+  position: absolute;
+}
 
 .list {
   width: 83%;
