@@ -2,7 +2,6 @@
   <div class="list">
     <div class="list__block">
       <div
-        v-motion-slide-bottom
         class="list__item"
         v-for="product in sliceCards"
         :key="product.id"
@@ -17,9 +16,11 @@
       </more-btn>
       <div v-if="products.length > pageSize" class="list__pagination">
         <n-pagination
+          show-size-picker
           :default-page="1"
           v-model:page="page"
-          :page-size="pageSize"
+          v-model:page-size="pageSize"
+          :page-sizes="sizePicker"
           :page-count="Math.ceil(products.length / pageSize)"
         />
       </div>
@@ -36,19 +37,21 @@ import ProductCard from "./ProductCard.vue";
 const props = defineProps({
   products: Array,
   sliceCards: Array,
-  pageSize: Number,
   step: Number,
+  sizePicker: Array
 });
 const storeProducts = storeToRefs(useProductsCardStore());
-const { page } = storeProducts;
+const { page, pageSize } = storeProducts;
 const { setMoreProducts } = useProductsCardStore();
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/styles/mixins.scss";
+
 .list {
   width: 83%;
   @include fluid(margin-bottom, 25px, 50px);
+
   &__block {
     display: flex;
     flex-wrap: wrap;
