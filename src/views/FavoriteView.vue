@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <transition-group name="mode-fade" mode="out-in">
-      <div v-if="favorites.length > 0" key="full">
+      <div class="mode-fade-item" v-if="favorites.length > 0" key="full">
         <catalog-header
           title="Избранные товары"
           :productCount="favorites.length"
@@ -18,7 +18,7 @@
           />
         </div>
       </div>
-      <div v-else key="null">
+      <div class="mode-fade-item" v-else key="null">
         <product-empty
           title="В избранном пусто. Вы можете добавить товары в этот список из их детальной страницы."
         />
@@ -48,14 +48,23 @@ const routes = [
 </script>
 <style lang="scss" scoped>
 @import "../assets/styles/mixins.scss";
-.mode-fade-enter-active,
-.mode-fade-leave-active {
+.mode-fade-enter-active {
   transition: opacity 0.5s ease;
+}
+.mode-fade-leave-active {
+  position: absolute;
 }
 
 .mode-fade-enter-from,
 .mode-fade-leave-to {
   opacity: 0;
+  transform: translateY(30px);
+}
+
+.mode-fade-item {
+  transition: 0.38s linear;
+  display: inline-block;
+  width: 100%;
 }
 .wrapper {
   display: flex;

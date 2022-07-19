@@ -68,7 +68,6 @@ const scroll = () => {
 .list-complete-item {
   transition: all 0.4s ease-in-out;
   display: inline-block;
-  margin-right: 10px;
 }
 
 .list-complete-enter-from,
