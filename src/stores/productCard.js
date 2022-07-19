@@ -731,11 +731,194 @@ export const useProductsCardStore = defineStore({
         sales: 456,
       },
     ],
-    favorites: [],
+    favorites: [
+      {
+        id: 1,
+        src: card1,
+        name: "Риббон Wax/Resin 110 мм х 74 м",
+        price: 100,
+        totalPrice: 100,
+        countProduct: 1,
+        sales: 1_899,
+      },
+      {
+        id: 2,
+        src: card2,
+        name: "Этикет-лента 26×16 мм, прямоугольная, белая",
+        price: 459,
+        totalPrice: 459,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 3,
+        src: card3,
+        name: "Этикет-пистолет, 22×12 мм, MOTEX МХ-5500PLUS ",
+        price: 4000,
+        totalPrice: 4000,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 4,
+        src: card4,
+        name: "Этикетка ТермоЭко (100×100 мм)",
+        price: 2000,
+        totalPrice: 2000,
+        countProduct: 1,
+        sales: 2500,
+      },
+      {
+        id: 5,
+        src: card5,
+        name: "Ценник малый «Цена» 30×20 мм, белый",
+        price: 1500,
+        totalPrice: 1500,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 6,
+        src: card6,
+        name: "Этикетка для документов самоклеящаяся, 74×40мм",
+        price: 150,
+        totalPrice: 150,
+        countProduct: 1,
+        sales: 2000,
+      },
+      {
+        id: 7,
+        src: card1,
+        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        price: 2000,
+        totalPrice: 2000,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 8,
+        src: card2,
+        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        price: 248,
+        totalPrice: 248,
+        countProduct: 1,
+        sales: 456,
+      },
+      {
+        id: 9,
+        src: card1,
+        name: "Риббон Wax/Resin 110 мм х 74 м",
+        price: 100,
+        totalPrice: 100,
+        countProduct: 1,
+        sales: 1_899,
+      },
+      {
+        id: 10,
+        src: card2,
+        name: "Этикет-лента 26×16 мм, прямоугольная, белая",
+        price: 459,
+        totalPrice: 459,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 11,
+        src: card3,
+        name: "Этикет-пистолет, 22×12 мм, MOTEX МХ-5500PLUS ",
+        price: 4000,
+        totalPrice: 4000,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 12,
+        src: card4,
+        name: "Этикетка ТермоЭко (100×100 мм)",
+        price: 2000,
+        totalPrice: 2000,
+        countProduct: 1,
+        sales: 2500,
+      },
+      {
+        id: 13,
+        src: card5,
+        name: "Ценник малый «Цена» 30×20 мм, белый",
+        price: 1500,
+        totalPrice: 1500,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 14,
+        src: card6,
+        name: "Этикетка для документов самоклеящаяся, 74×40мм",
+        price: 150,
+        totalPrice: 150,
+        countProduct: 1,
+        sales: 2000,
+      },
+      {
+        id: 15,
+        src: card1,
+        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        price: 2000,
+        totalPrice: 2000,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 16,
+        src: card2,
+        name: "Риббон Wax/Resin 110 мм х 74 м OUT",
+        price: 248,
+        totalPrice: 248,
+        countProduct: 1,
+        sales: 456,
+      },
+      {
+        id: 17,
+        src: card1,
+        name: "Риббон Wax/Resin 110 мм х 74 м",
+        price: 100,
+        totalPrice: 100,
+        countProduct: 1,
+        sales: 1_899,
+      },
+      {
+        id: 18,
+        src: card2,
+        name: "Этикет-лента 26×16 мм, прямоугольная, белая",
+        price: 459,
+        totalPrice: 459,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 19,
+        src: card3,
+        name: "Этикет-пистолет, 22×12 мм, MOTEX МХ-5500PLUS ",
+        price: 4000,
+        totalPrice: 4000,
+        countProduct: 1,
+        sales: null,
+      },
+      {
+        id: 20,
+        src: card4,
+        name: "Этикетка ТермоЭко (100×100 мм)",
+        price: 2000,
+        totalPrice: 2000,
+        countProduct: 1,
+        sales: 2500,
+      },
+    ],
     favoriteIds: [],
     pageSize: 20,
     page: 1,
+    sliceCount: 1,
     step: 20,
+    sizePicker: [20, 30, 40],
   }),
   getters: {
     getProductById: (state) => {
@@ -746,27 +929,36 @@ export const useProductsCardStore = defineStore({
       return (productId) =>
         state.favoriteIds.indexOf(productId) == -1 ? false : true;
     },
-    sliceProducts: (state) =>
-      state.products.slice(
-        (state.page - 1) * state.pageSize,
+    sliceProducts: (state) => {
+      return state.products.slice(
+        (state.page - state.sliceCount) * state.pageSize,
         state.page * state.pageSize
-      ),
-    sliceFavorite: (state) =>
-      state.favorites.slice(
-        (state.page - 1) * state.pageSize,
+      );
+    },
+    sliceFavorite: (state) => {
+      return state.favorites.slice(
+        (state.page - state.sliceCount) * state.pageSize,
         state.page * state.pageSize
-      ),
+      );
+    },
   },
   actions: {
     totalPriceProduct(card) {
       card.totalPrice = card.countProduct * card.price;
     },
+    removeProduct(card) {
+      this.favorites.splice(
+        this.favorites.findIndex((a) => a.id === card.id),
+        1
+      );
+      this.favoriteIds.splice(
+        this.favoriteIds.findIndex((a) => a === card.id),
+        1
+      );
+    },
     addCardFavorite(card) {
       this.favorites.push(card);
       this.favoriteIds.push(card.id);
-    },
-    removeCardFavorite(card) {
-      this.favorites.push(card);
     },
     incrementProduct(card) {
       card.countProduct++;
@@ -778,6 +970,9 @@ export const useProductsCardStore = defineStore({
     },
     setMoreProducts() {
       this.page++;
+      this.sliceCount++;
+      // this.products.sort(() => Math.random() - 0.5);
+      // this.pageSize = this.pageSize + this.step;
     },
   },
 });

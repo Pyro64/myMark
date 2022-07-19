@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <div class="breadcrumb ">
-      <router-link v-for="route in routes" :key="route.id" class="breadcrumbLink" :to="route.to">{{ route.text }}
+    <div class="breadcrumb">
+      <router-link
+        v-for="route in routes"
+        :key="route.id"
+        class="breadcrumbLink"
+        :to="route.to"
+        >{{ route.text }}
       </router-link>
     </div>
   </div>
@@ -9,12 +14,12 @@
 
 <script setup>
 const props = defineProps({
-  routes: Array
+  routes: Array,
 });
 </script>
 
 <style scoped lang="scss">
-@import '../../assets/styles/mixins.scss';
+@import "../../assets/styles/mixins.scss";
 
 .container {
   @include container;
@@ -42,14 +47,13 @@ const props = defineProps({
     @include fluid(width, 5px, 7px);
     @include fluid(height, 10px, 12px);
     @include fluid(right, -12px, -20px);
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: url("../../assets/images/icon/arrow-right.svg") no-repeat;
     background-size: contain;
   }
-
   &:last-child {
     opacity: 0.5;
     pointer-events: none;

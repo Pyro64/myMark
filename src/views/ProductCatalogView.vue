@@ -7,7 +7,6 @@
     <product-list
       :products="products"
       :sliceCards="sliceProducts"
-      :pageSize="pageSize"
       :step="step"
     />
   </div>
@@ -45,12 +44,13 @@ import { useRoute } from "vue-router";
 import { useProductsCardStore } from "../stores/productCard";
 
 const storeProducts = storeToRefs(useProductsCardStore());
-const { products, sliceProducts, page, pageSize, step } = storeProducts;
+const { products, sliceProducts, step } = storeProducts;
 const route = useRoute();
 const text = route.params.name;
 </script>
 <style lang="scss" scoped>
 @import "../assets/styles/mixins.scss";
+
 .wrapper {
   display: flex;
   justify-content: space-between;
