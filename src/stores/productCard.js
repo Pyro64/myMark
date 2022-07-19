@@ -735,6 +735,7 @@ export const useProductsCardStore = defineStore({
     favoriteIds: [],
     pageSize: 20,
     page: 1,
+    sliceCount: 1,
     step: 20,
     // sizePicker: [20, 30, 40],
   }),
@@ -748,13 +749,10 @@ export const useProductsCardStore = defineStore({
         state.favoriteIds.indexOf(productId) == -1 ? false : true;
     },
     sliceProducts: (state) => {
-      return (productId) => {
-        console.log(productId);
-        return state.products.slice(
-          (state.page - 1) * state.pageSize,
-          state.page * state.pageSize
-        );
-      };
+      return state.products.slice(
+        (state.page - state.sliceCount) * state.pageSize,
+        state.page * state.pageSize
+      );
     },
     sliceFavorite: (state) =>
       state.favorites.slice(
@@ -782,9 +780,10 @@ export const useProductsCardStore = defineStore({
       card.totalPrice = card.totalPrice - card.price;
     },
     setMoreProducts() {
+      this.page++;
+      this.sliceCount++;
       // this.products.sort(() => Math.random() - 0.5);
       // this.pageSize = this.pageSize + this.step;
-      this.page++;
     },
   },
 });

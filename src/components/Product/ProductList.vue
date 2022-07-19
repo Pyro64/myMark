@@ -4,7 +4,7 @@
       <transition-group name="list-complete">
         <div
           class="list__item list-complete-item"
-          v-for="product in sliceCards(false)"
+          v-for="product in sliceCards"
           :key="product.id"
         >
           <product-card :product="product" />
@@ -17,11 +17,14 @@
         Показать еще
       </more-btn>
       <div v-if="products.length > pageSize" class="list__pagination">
+        {{ page }}
+        {{ pageSize }}
+        {{ sliceCount }}
         <n-pagination
+          @click="sliceCount = 1"
           :default-page="1"
           v-model:page="page"
-          v-model:page-size="pageSize"
-          :page-sizes="sizePicker"
+          :page-size="pageSize"
           :page-count="Math.ceil(products.length / pageSize)"
         />
       </div>
@@ -42,7 +45,7 @@ const props = defineProps({
   sizePicker: Array,
 });
 const storeProducts = storeToRefs(useProductsCardStore());
-const { page, pageSize } = storeProducts;
+const { page, pageSize, sliceCount } = storeProducts;
 const { setMoreProducts } = useProductsCardStore();
 </script>
 

@@ -2,9 +2,19 @@
   <div class="productCatalog">
     <MyTitle title="Каталог товаров" />
     <div class="productCatalog__block">
-      <router-link :to="{ name: 'categoryList', params: { id: `${c.id}`,name:`${c.text}` }}" v-for="c in catalogs" :key="c.id"
-                   class="productCatalog__item">
-        <img class="productCatalog__img" :src="c.img" alt="catalog">
+      <router-link
+        :to="{
+          name: 'categoryList',
+          params: {
+            id: `${c.id}`,
+            name: `${c.text}`,
+          },
+        }"
+        v-for="c in catalogs"
+        :key="c.id"
+        class="productCatalog__item"
+      >
+        <img class="productCatalog__img" :src="c.img" alt="catalog" />
         <div class="productCatalog__text">{{ c.text }}</div>
       </router-link>
     </div>
@@ -21,23 +31,23 @@ const catalogs = [
   {
     id: 1,
     img: catalog1,
-    text: "Курьерские пакеты"
+    text: "Курьерские пакеты",
   },
   {
     id: 2,
     img: catalog2,
-    text: "Термоэтикетки"
+    text: "Термоэтикетки",
   },
   {
     id: 3,
     img: catalog3,
-    text: "Стрейч пленка"
-  }
+    text: "Стрейч пленка",
+  },
 ];
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/mixins';
+@import "../../assets/styles/mixins";
 
 .productCatalog {
   @include container;
@@ -45,8 +55,6 @@ const catalogs = [
 
   &__block {
     display: flex;
-
-
   }
 
   &__item {
@@ -54,7 +62,7 @@ const catalogs = [
     @include fluid(padding-bottom, 15px, 30px);
     width: 30%;
     margin-right: 5%;
-    background: #FFFFFF;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
