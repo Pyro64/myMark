@@ -737,7 +737,7 @@ export const useProductsCardStore = defineStore({
     page: 1,
     sliceCount: 1,
     step: 20,
-    // sizePicker: [20, 30, 40],
+    sizePicker: [20, 30, 40],
   }),
   getters: {
     getProductById: (state) => {
@@ -754,22 +754,30 @@ export const useProductsCardStore = defineStore({
         state.page * state.pageSize
       );
     },
-    sliceFavorite: (state) =>
-      state.favorites.slice(
-        (state.page - 1) * state.pageSize,
+    sliceFavorite: (state) => {
+      return state.favorites.slice(
+        (state.page - state.sliceCount) * state.pageSize,
         state.page * state.pageSize
-      ),
+      );
+    },
   },
   actions: {
     totalPriceProduct(card) {
       card.totalPrice = card.countProduct * card.price;
     },
+    removeProduct(card) {
+      this.favorites.splice(
+        this.favorites.findIndex((a) => a.id === card.id),
+        1
+      );
+      this.favoriteIds.splice(
+        this.favoriteIds.findIndex((a) => a === card.id),
+        1
+      );
+    },
     addCardFavorite(card) {
       this.favorites.push(card);
       this.favoriteIds.push(card.id);
-    },
-    removeCardFavorite(card) {
-      this.favorites.push(card);
     },
     incrementProduct(card) {
       card.countProduct++;

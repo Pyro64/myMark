@@ -8,7 +8,6 @@
       :products="products"
       :sliceCards="sliceProducts"
       :step="step"
-      :sizePicker="sizePicker"
     />
   </div>
   <slider-card
@@ -45,7 +44,7 @@ import { useRoute } from "vue-router";
 import { useProductsCardStore } from "../stores/productCard";
 
 const storeProducts = storeToRefs(useProductsCardStore());
-const { products, sliceProducts, step, sizePicker } = storeProducts;
+const { products, sliceProducts, step } = storeProducts;
 const route = useRoute();
 const text = route.params.name;
 </script>

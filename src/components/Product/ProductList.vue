@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="list" ref="div1">
     <div class="list__block">
       <transition-group name="list-complete">
         <div
@@ -7,21 +7,25 @@
           v-for="product in sliceCards"
           :key="product.id"
         >
-          <product-card :product="product" />
+          <product-card :product="product" :remove="remove" />
         </div>
       </transition-group>
       <more-btn
-        v-if="page !== Math.ceil(products.length / pageSize)"
+        v-if="
+          page !== Math.ceil(products.length / pageSize) &&
+          products.length !== 0
+        "
         @click="setMoreProducts"
       >
         Показать еще
       </more-btn>
       <div v-if="products.length > pageSize" class="list__pagination">
-        {{ page }}
-        {{ pageSize }}
-        {{ sliceCount }}
         <n-pagination
-          @click="sliceCount = 1"
+          @click="
+            sliceCount = 1;
+            scroll();
+          "
+          size="large"
           :default-page="1"
           v-model:page="page"
           :page-size="pageSize"
@@ -42,11 +46,20 @@ const props = defineProps({
   products: Array,
   sliceCards: Array,
   step: Number,
-  sizePicker: Array,
+  remove: {
+    type: Boolean,
+    required: false,
+  },
 });
 const storeProducts = storeToRefs(useProductsCardStore());
 const { page, pageSize, sliceCount } = storeProducts;
 const { setMoreProducts } = useProductsCardStore();
+const scroll = () => {
+  window.scrollTo({
+    top: 100,
+    behavior: "smooth",
+  });
+};
 </script>
 
 <style lang="scss" scoped>
@@ -69,7 +82,7 @@ const { setMoreProducts } = useProductsCardStore();
 }
 
 .list {
-  width: 83%;
+  width: 88.5%;
   @include fluid(margin-bottom, 25px, 50px);
 
   &__block {
@@ -79,12 +92,8 @@ const { setMoreProducts } = useProductsCardStore();
 
   &__item {
     @include fluid(width, 180px, 240px);
-    @include fluid(margin-right, 20px, 40px);
+    @include fluid(margin-left, 20px, 40px);
     @include fluid(margin-bottom, 10px, 20px);
-
-    &:nth-child(5n) {
-      margin-right: 0;
-    }
   }
 
   &__pagination {
